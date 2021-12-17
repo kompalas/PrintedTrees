@@ -1,0 +1,46 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : top
+Version: M-2016.12-SP4
+Date   : Fri Dec 17 16:06:10 2021
+****************************************
+
+Operating Conditions: TT   Library: PPDK_Standard_Library_1.0V_25C_TYP_X1
+Wire Load Model Mode: top
+
+  Startpoint: inp[1] (input port clocked by clk)
+  Endpoint: out (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             0.000      0.000
+  input external delay                    0.000      0.000 f
+  inp[1] (in)                             0.000      0.000 f
+  U10/Y (NAND2X1)                      1282072.500
+                                                  1282072.500 r
+  U12/Y (NOR2X1)                       402728.250 1684800.750 f
+  U16/Y (NAND2X1)                      1747781.750
+                                                  3432582.500 r
+  U17/Y (INVX1)                        745307.250 4177889.750 f
+  out (out)                               0.000   4177889.750 f
+  data arrival time                               4177889.750
+
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             0.000      0.000
+  output external delay                   0.000      0.000
+  data required time                                 0.000
+  -----------------------------------------------------------
+  data required time                                 0.000
+  data arrival time                               -4177889.750
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -4177889.750
+
+
+1

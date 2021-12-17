@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : top
+Version: M-2016.12-SP4
+Date   : Fri Dec 17 15:52:34 2021
+****************************************
+
+Library(s) Used:
+
+    PPDK_Standard_Library_1.0V_25C_TYP_X1 (File: /home/balkon00/PrintedTrees/EGFET_PDK/lib_files/PPDK_Standard_Library_1.0V_25C_TYP_X1.db)
+
+Number of ports:                            8
+Number of nets:                            13
+Number of cells:                            6
+Number of combinational cells:              6
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          0
+Number of references:                       2
+
+Combinational area:            2093720.000000
+Buf/Inv area:                        0.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:               2093720.000000
+Total area:                 undefined
+1

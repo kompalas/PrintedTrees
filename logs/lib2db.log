@@ -1,0 +1,105 @@
+
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+              Version M-2016.12-SP2-1 for linux64 - Mar 22, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Initializing...
+set LIB_PATH $env(LIB_PATH)
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files
+if {[string index $LIB_PATH end] != "/"} {
+    set LIB_PATH "${LIB_PATH}/"
+}
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/
+set search_path [list ${LIB_PATH}]
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/
+set LIB_TO_COMPILE $env(LIB_TO_COMPILE)
+PPDK_Standard_Library_1.0V_25C_TYP_X1.lib
+set LIB_OUTPUT_DB $env(LIB_OUTPUT_DB)
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/PPDK_Standard_Library_1.0V_25C_TYP_X1.db
+set LIB_NAME [string map {".lib" ""} $LIB_TO_COMPILE]
+PPDK_Standard_Library_1.0V_25C_TYP_X1
+read_lib $LIB_TO_COMPILE
+Reading '/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/PPDK_Standard_Library_1.0V_25C_TYP_X1.lib' ...
+Warning: Line 1, The 'default_inout_pin_cap' attribute is not specified. Using 1.00. (LBDB-172)
+Warning: Line 1, The 'default_input_pin_cap' attribute is not specified. Using 1.00. (LBDB-172)
+Warning: Line 1, The 'default_leakage_power_density' attribute is not specified. Using 0.00. (LBDB-172)
+Warning: Line 204, Cell 'DFFNRX1', pin 'Q', The 'DFFNRX1' cell contains circular timing arcs.
+	The 'Q' pin is in one of the cycles. (LBDB-140)
+Warning: Line 204, Cell 'DFFNRX1', pin 'Q', The 'DFFNRX1' cell contains circular timing arcs.
+	The 'Q' pin is in one of the cycles. (LBDB-140)
+Warning: Line 204, Cell 'DFFNRX1', pin 'Q', The 'DFFNRX1' cell contains circular timing arcs.
+	The 'Q' pin is in one of the cycles. (LBDB-140)
+Warning: Line 65, Cell 'DFFNRX1', The cell_leakage_power attribute of the 'DFFNRX1' cell is redundant
+	and not used in the leakage_power modeling. (LBDB-644)
+Warning: Line 282, Cell 'DFFNRX1', pin 'Q', The when attribute uses '!CP * RST_N' pins
+	that cannot be found in the ff/latch group . (LIBG-115)
+Warning: Line 307, Cell 'DFFNRX1', pin 'Q', The when attribute uses '!CP * !RST_N' pins
+	that cannot be found in the ff/latch group . (LIBG-115)
+Warning: Line 777, Cell 'DFFNRX1', pin 'Q_bar', The when attribute uses 'CP * RST_N' pins
+	that cannot be found in the ff/latch group . (LIBG-115)
+Warning: Line 802, Cell 'DFFNRX1', pin 'Q_bar', The when attribute uses '!CP * RST_N' pins
+	that cannot be found in the ff/latch group . (LIBG-115)
+Warning: Line 1686, Cell 'DFFX1', pin 'Q', The 'DFFX1' cell contains circular timing arcs.
+	The 'Q' pin is in one of the cycles. (LBDB-140)
+Warning: Line 1686, Cell 'DFFX1', pin 'Q', The 'DFFX1' cell contains circular timing arcs.
+	The 'Q' pin is in one of the cycles. (LBDB-140)
+Warning: Line 1686, Cell 'DFFX1', pin 'Q', The 'DFFX1' cell contains circular timing arcs.
+	The 'Q' pin is in one of the cycles. (LBDB-140)
+Warning: Line 1607, Cell 'DFFX1', The cell_leakage_power attribute of the 'DFFX1' cell is redundant
+	and not used in the leakage_power modeling. (LBDB-644)
+Warning: Line 2349, Cell 'INVX1', The cell_leakage_power attribute of the 'INVX1' cell is redundant
+	and not used in the leakage_power modeling. (LBDB-644)
+Warning: Line 2481, Cell 'INVX1', pin 'A', The pin 'A' does not have a internal_power group. (LBDB-607)
+Warning: Line 2562, Cell 'LATCHX1', pin 'Q', The 'LATCHX1' cell contains circular timing arcs.
+	The 'Q' pin is in one of the cycles. (LBDB-140)
+Warning: Line 2562, Cell 'LATCHX1', pin 'Q', The 'LATCHX1' cell contains circular timing arcs.
+	The 'Q' pin is in one of the cycles. (LBDB-140)
+Warning: Line 2562, Cell 'LATCHX1', pin 'Q', The 'LATCHX1' cell contains circular timing arcs.
+	The 'Q' pin is in one of the cycles. (LBDB-140)
+Warning: Line 2493, Cell 'LATCHX1', The cell_leakage_power attribute of the 'LATCHX1' cell is redundant
+	and not used in the leakage_power modeling. (LBDB-644)
+Warning: Line 2562, Cell 'LATCHX1', pin 'Q', There is an extra timing arc between 'S' and 
+	'Q' pins in the 'LATCHX1' cell. (LBDB-75)
+Warning: Line 2665, Cell 'LATCHX1', pin 'Q', The 'when' attribute (S) uses pins
+	that cannot be found in function attribute (!R). (LIBG-41)
+Warning: Line 2690, Cell 'LATCHX1', pin 'Q', The 'when' attribute (!S) uses pins
+	that cannot be found in function attribute (!R). (LIBG-41)
+Warning: Line 2931, Cell 'LATCHX1', pin 'Q_bar', There is an extra timing arc between 'R' and 
+	'Q_bar' pins in the 'LATCHX1' cell. (LBDB-75)
+Warning: Line 3057, Cell 'LATCHX1', pin 'Q_bar', The 'when' attribute (R) uses pins
+	that cannot be found in function attribute (!S). (LIBG-41)
+Warning: Line 3082, Cell 'LATCHX1', pin 'Q_bar', The 'when' attribute (!R) uses pins
+	that cannot be found in function attribute (!S). (LIBG-41)
+Warning: Line 3387, Cell 'NAND2X1', The cell_leakage_power attribute of the 'NAND2X1' cell is redundant
+	and not used in the leakage_power modeling. (LBDB-644)
+Warning: Line 3711, Cell 'NOR2X1', The cell_leakage_power attribute of the 'NOR2X1' cell is redundant
+	and not used in the leakage_power modeling. (LBDB-644)
+Warning: Line 4317, Cell 'AND2X1', The cell_leakage_power attribute of the 'AND2X1' cell is redundant
+	and not used in the leakage_power modeling. (LBDB-644)
+Warning: Line 4641, Cell 'OR2X1', The cell_leakage_power attribute of the 'OR2X1' cell is redundant
+	and not used in the leakage_power modeling. (LBDB-644)
+Warning: Line 4965, Cell 'XNOR2X1', The cell_leakage_power attribute of the 'XNOR2X1' cell is redundant
+	and not used in the leakage_power modeling. (LBDB-644)
+Warning: Line 5388, Cell 'XNOR2X1', pin 'A1', The pin 'A1' does not have a internal_power group. (LBDB-607)
+Warning: Line 5399, Cell 'XNOR2X1', pin 'A2', The pin 'A2' does not have a internal_power group. (LBDB-607)
+Warning: Line 5411, Cell 'XOR2X1', The cell_leakage_power attribute of the 'XOR2X1' cell is redundant
+	and not used in the leakage_power modeling. (LBDB-644)
+Warning: Line 5834, Cell 'XOR2X1', pin 'A1', The pin 'A1' does not have a internal_power group. (LBDB-607)
+Warning: Line 5845, Cell 'XOR2X1', pin 'A2', The pin 'A2' does not have a internal_power group. (LBDB-607)
+Technology library 'PPDK_Standard_Library_1.0V_25C_TYP_X1' read successfully
+1
+write_lib $LIB_NAME -output $LIB_OUTPUT_DB -format db
+Wrote the 'PPDK_Standard_Library_1.0V_25C_TYP_X1' library to '/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/PPDK_Standard_Library_1.0V_25C_TYP_X1.db' successfully
+1
+quit
+Memory usage for this session 21 Mbytes.
+CPU usage for this session 0 seconds ( 0.00 hours ).
+
+Thank you...
