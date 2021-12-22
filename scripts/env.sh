@@ -10,7 +10,7 @@ export ENV_LIBRARY_VERILOG_PATH="/home/balkon00/eda/libs/nangate45/verilog/"
 #set the top design name
 export ENV_TOP_DESIGN="top"
 #set the desired delay
-export ENV_CLK_PERIOD="0.0"
+export ENV_CLK_PERIOD="50000000"
 
 #clock name and reset (if applicable)
 export ENV_CLK_PORT="clk"

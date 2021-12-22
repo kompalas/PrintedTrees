@@ -2,6 +2,8 @@
 set -x
 set -eou pipefail
 
+synclk="${1?Specify the clock period IN MILISECONDS for synthesis as the first positional argument}"
+
 maindir="$HOME/PrintedTrees"
 testdir="$maindir"
 
@@ -22,11 +24,12 @@ fi
 sed -i "/ENV_LIBRARY_PATH=/ c\export ENV_LIBRARY_PATH=\"$libpath\"" $testdir/scripts/env.sh
 sed -i "/ENV_LIBRARY_DB=/ c\export ENV_LIBRARY_DB=\"$lib\"" $testdir/scripts/env.sh
 
-cp $maindir/verilog/comparator.v $testdir/hdl/top.v
+cp $maindir/rtl/comparator.v $testdir/hdl/top.v
+sed -i "/ENV_CLK_PERIOD=/ c\export ENV_CLK_PERIOD=\"$((synclk*1000000))\"" $testdir/scripts/env.sh
 
-resfile="$resdir/results.txt"
+resfile="$resdir/results_${synclk}ms.txt"
 echo -e "InputBits\tConstant\tArea" > $resfile
-area_rpt="$testdir/reports/top_0.0ns.area.rpt"
+area_rpt="$testdir/reports/top_$((synclk*1000000))ns.area.rpt"
 dclog="$testdir/logs/dcsyn.log"
 netl="$testdir/gate/top.sv"
 

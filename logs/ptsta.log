@@ -18,22 +18,23 @@ if {[string index $dcpath end] != "/"} {
 }
 /Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/
 set LIB_DB_PATH $::env(ENV_LIBRARY_PATH)
-/home/balkon00/eda/libs/nangate45/db/
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files
 set example "test/example.lib"
 test/example.lib
 set new [string map {".lib" ""} $example]
 test/example
 if {[string index $LIB_DB_PATH end] != "/"} { set LIB_DB_PATH "${LIB_DB_PATH}/" }
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/
 set LIB_DB_NAME $::env(ENV_LIBRARY_DB)
-nangate45.db
+PPDK_Standard_Library_1.0V_25C_TYP_X1.db
 set curDir [pwd]
 /home/balkon00/PrintedTrees
 set search_path [list ${LIB_DB_PATH} ${DC_LIB_PATH} ${curDir}/gate/]
-/home/balkon00/eda/libs/nangate45/db/ /Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/ /home/balkon00/PrintedTrees/gate/
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/ /Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/ /home/balkon00/PrintedTrees/gate/
 set synthetic_library {dw_foundation.sldb}
 dw_foundation.sldb
 set link_path [list ${LIB_DB_NAME} ${synthetic_library} *]
-nangate45.db dw_foundation.sldb *
+PPDK_Standard_Library_1.0V_25C_TYP_X1.db dw_foundation.sldb *
 #read files
 set top_design $::env(ENV_TOP_DESIGN)
 top
@@ -43,14 +44,14 @@ current_design $top_design
 Information: current_design won't return any data before link (DES-071)
 link_design
 Loading verilog file '/home/balkon00/PrintedTrees/gate/top.sv'
-Loading db file '/home/balkon00/eda/libs/nangate45/db/nangate45.db'
+Loading db file '/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/PPDK_Standard_Library_1.0V_25C_TYP_X1.db'
 Loading db file '/Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/dw_foundation.sldb'
 Linking design top...
-Information: 134 (100.00%) library cells are unused in library NangateOpenCellLibrary..... (LNK-045)
+Information: 8 (72.73%) library cells are unused in library PPDK_Standard_Library_1.0V_25C_TYP_X1..... (LNK-045)
 Information: 784 (100.00%) library cells are unused in library dw_foundation.sldb..... (LNK-045)
-Information: total 918 library cells are unused (LNK-046)
+Information: total 792 library cells are unused (LNK-046)
 Design 'top' was successfully linked.
-Information: There are 10 leaf cells, ports, hiers and 8 nets in the design (LNK-047)
+Information: There are 18 leaf cells, ports, hiers and 16 nets in the design (LNK-047)
 1
 #sdc
 source ./scripts/sdc.tcl
@@ -60,7 +61,6 @@ Warning: Creating virtual clock named 'clk' with no sources. (UITE-121)
 set auto_wire_load_selection true
 true
 check_timing -include {supply_net_voltage signal_level unconnected_pg_pins}
-Warning: Some timing arcs have been disabled for breaking timing loops or because of constant propagation. Use the 'report_disable_timing' command to get the list of these disabled timing arcs. (PTE-003)
 Information: Building multi voltage information for entire design. (MV-022)
 Information: Checking 'no_input_delay'.
 Information: Checking 'no_driving_cell'.
@@ -76,20 +76,19 @@ Information: Checking 'signal_level'.
 Rail to rail mismatch threshold  voltage 0  percent 0  strategy all
 Information: Checking 'supply_net_voltage'.
 Information: Checking 'unconnected_pg_pins'.
+Warning: There are '16' unconnected power and ground pins. (UPF-030)
 Information: Checking 'pulse_clock_non_pulse_clock_merge'.
 Information: Checking 'pll_configuration'.
-check_timing succeeded.
-1
+0
 update_timing
 1
 #reports
 write_sdf ./gate/${top_design}.sdf
-Warning: There is no delay to write in SDF. (SDF-018)
 1
 write_saif ./gate/${top_design}.saif
 Error: Power analysis is disabled. (PWR-001)
 set clk_period $::env(ENV_CLK_PERIOD)
-0.0
+5000000.0
 report_timing -significant_digits 3 > ./reports/${top_design}_${clk_period}ns.timing.pt.rpt
 quit
 Information: Defining new variable 'top_design'. (CMD-041)
@@ -106,9 +105,9 @@ Information: Defining new variable 'LIB_DB_PATH'. (CMD-041)
 
 Timing updates: 1 (1 implicit, 0 explicit) (0 incremental, 1 full, 0 logical)
 Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
-Maximum memory usage for this session: 1139.99 MB
+Maximum memory usage for this session: 1141.67 MB
 CPU usage for this session: 2 seconds 
-Elapsed time for this session: 4 seconds
-Diagnostics summary: 1 error, 3 warnings, 17 informationals
+Elapsed time for this session: 2 seconds
+Diagnostics summary: 1 error, 2 warnings, 17 informationals
 
 Thank you for using pt_shell!

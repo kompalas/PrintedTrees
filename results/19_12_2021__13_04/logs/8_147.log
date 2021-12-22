@@ -1,0 +1,316 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version M-2016.12-SP4 for linux64 - May 20, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/balkon00/.synopsys_dv_prefs.tcl
+#setup libs
+set dcpath $::env(SNPS_SYN)
+/Software/synopsys/2017/syn_vM-2016.12-SP4
+if {[string index $dcpath end] != "/"} {
+	set DC_LIB_PATH ${dcpath}/libraries/syn/
+} else {
+	set DC_LIB_PATH ${dcpath}libraries/syn/
+}
+/Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/
+set LIB_DB_PATH $::env(ENV_LIBRARY_PATH)
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files
+if {[string index $LIB_DB_PATH end] != "/"} { set LIB_DB_PATH "${LIB_DB_PATH}/" }
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/
+set curDir [pwd]
+/home/balkon00/PrintedTrees
+set LIB_DB_NAME $::env(ENV_LIBRARY_DB)
+PPDK_Standard_Library_1.0V_25C_TYP_X1.db
+set LIB_SDB_NAME " "
+ 
+set search_path [list ${LIB_DB_PATH} ${DC_LIB_PATH} ${curDir}/hdl/ ]
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/ /Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/ /home/balkon00/PrintedTrees/hdl/
+set target_library [list ${LIB_DB_NAME}]
+PPDK_Standard_Library_1.0V_25C_TYP_X1.db
+set synthetic_library {dw_foundation.sldb}
+dw_foundation.sldb
+set link_library [list ${LIB_DB_NAME} ${synthetic_library}]
+PPDK_Standard_Library_1.0V_25C_TYP_X1.db dw_foundation.sldb
+set symbol_library [list ${LIB_SDB_NAME}]
+{ }
+#read files
+set verilog_files $::env(ENV_VERILOG_FILES)
+./hdl/top.v 
+set top_design $::env(ENV_TOP_DESIGN)
+top
+analyze -f Verilog $verilog_files
+Running PRESTO HDLC
+Compiling source file ./hdl/top.v
+Presto compilation completed successfully.
+Loading db file '/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/PPDK_Standard_Library_1.0V_25C_TYP_X1.db'
+Loading db file '/Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/dw_foundation.sldb'
+1
+elaborate $top_design
+Loading db file '/Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/gtech.db'
+Loading db file '/Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/standard.sldb'
+  Loading link library 'PPDK_Standard_Library_1.0V_25C_TYP_X1'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'top'.
+1
+current_design $top_design
+Current design is 'top'.
+{top}
+link
+
+  Linking design 'top'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  PPDK_Standard_Library_1.0V_25C_TYP_X1 (library) /home/balkon00/PrintedTrees/EGFET_PDK/lib_files/PPDK_Standard_Library_1.0V_25C_TYP_X1.db
+  dw_foundation.sldb (library) /Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/dw_foundation.sldb
+
+1
+set auto_wire_load_selection true
+true
+set_max_area 0
+1
+#sdc
+source ./scripts/sdc.tcl
+Warning: Creating virtual clock named 'clk' with no sources. (UID-348)
+1
+#compile option
+compile_ultra
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | M-2016.12-DWBB_201612.4 |     *     |
+| Licensed DW Building Blocks        | M-2016.12-DWBB_201612.4 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+  Simplifying Design 'top'
+
+Loaded alib file './alib-52/PPDK_Standard_Library_1.0V_25C_TYP_X1.db.alib'
+  Building model 'DW01_NAND2'
+Information: Ungrouping 0 of 1 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'top'
+Information: Added key list 'DesignWare' to design 'top'. (DDB-72)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+  Beginning Global Optimizations
+  ------------------------------
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+
+
+  Beginning Design Rule Fixing  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00 1892250.0      0.00       0.0 2722286.8                           64097.5391
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+    0:00:00 2306310.0      0.00       0.0 3450414.8                           88552.3594
+Loading db file '/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/PPDK_Standard_Library_1.0V_25C_TYP_X1.db'
+Warning: Disabling timing arc between pins 'Q' and 'Q_bar' on cell 'LATCHX1'
+         to break a loop detected in this library cell. (OPT-314)
+Warning: Disabling timing arc between pins 'Q_bar' and 'Q' on cell 'LATCHX1'
+         to break a loop detected in this library cell. (OPT-314)
+Warning: Disabling timing arc between pins 'Q' and 'Q_bar' on cell 'DFFX1'
+         to break a loop detected in this library cell. (OPT-314)
+Warning: Disabling timing arc between pins 'Q_bar' and 'Q' on cell 'DFFX1'
+         to break a loop detected in this library cell. (OPT-314)
+Warning: Disabling timing arc between pins 'Q' and 'Q_bar' on cell 'DFFNRX1'
+         to break a loop detected in this library cell. (OPT-314)
+Warning: Disabling timing arc between pins 'Q_bar' and 'Q' on cell 'DFFNRX1'
+         to break a loop detected in this library cell. (OPT-314)
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+#reports
+set clk_period $::env(ENV_CLK_PERIOD)
+50000000
+report_qor > ./reports/${top_design}_${clk_period}ns.qor.rpt
+report_area > ./reports/${top_design}_${clk_period}ns.area.rpt
+report_area -hierarchy > ./reports/${top_design}_${clk_period}ns.hierarchy.area.rpt
+report_timing -significant_digits 3 > ./reports/${top_design}_${clk_period}ns.timing.rpt 
+#write files
+change_names -h -rules verilog
+1
+write -h -f ddc -output ./gate/${top_design}.ddc
+Writing ddc file './gate/top.ddc'.
+1
+write -h -f verilog -output ./gate/${top_design}.sv
+Writing verilog file '/home/balkon00/PrintedTrees/gate/top.sv'.
+1
+write_sdc ./gate/${top_design}.sdc
+1
+write_sdf ./gate/${top_design}.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/balkon00/PrintedTrees/gate/top.sdf'. (WT-3)
+1
+#exit
+quit
+
+Thank you...

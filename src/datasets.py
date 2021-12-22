@@ -1,0 +1,87 @@
+from src import project_dir
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+import pandas as pd
+
+
+def get_data(dataset, input_bits):
+    """Retrieve training and test data from a given dataset"""
+    dataset_factory = {
+        'balance': get_balance,
+        'cardio': get_cardio,
+        'mammographic': get_mammogr,
+        'pendigits': get_pendigits,
+        'redwine': get_redwine,
+        'seeds': get_seeds,
+        'whitewine': get_whitewine
+    }
+    get_dataset_f = dataset_factory.get(dataset.lower(), None)
+    if get_dataset_f is None:
+        raise NotImplementedError(f"Dataset {dataset} is not implementd.")
+
+    dataX, dataY = get_dataset_f()
+    # scale in the interval [0, 1]
+    scaler = MinMaxScaler(feature_range=(0, 1))
+    dataX = scaler.fit_transform(dataX.to_numpy())
+
+    # restrict inputs to input_bits
+    dataX = 1/(2**input_bits) * (2**input_bits * dataX).astype(int)
+
+
+    x_train, x_test, y_train, y_test = train_test_split(dataX, dataY, test_size=0.3)
+    return x_train, x_test, y_train, y_test
+
+
+def get_balance():
+    df = pd.read_csv(f"{project_dir}/datasets/data/balance_scale/balance_scale.csv", sep=';')
+    dataY = df['Y']
+    dataX = df.loc[:'Y']
+    return dataX, dataY
+
+
+def get_cardio():
+    # df = pd.read_excel(
+    #     f"{project_dir}/datasets/files/CTG.xls",
+    #     sheet_name="Raw Data", usecols=list(range(3, 40)), skiprows=[1, 2128, 2129, 2130, 2131]
+    # )
+    # dataX = df.to_numpy()
+
+    df = pd.read_csv(f"{project_dir}/datasets/data/cardio/cardio.csv", sep=';')
+    dataY = df['Y']
+    dataX = df.loc[:'Y']
+    return dataX, dataY
+
+
+def get_mammogr():
+    df = pd.read_csv(f"{project_dir}/datasets/data/mammographic/mammographic_masses.csv", sep=';')
+    dataY = df['Y']
+    dataX = df.loc[:'Y']
+    return dataX, dataY
+
+
+def get_pendigits():
+    df = pd.read_csv(f"{project_dir}/datasets/data/pendigits/pendigits.csv", sep=';')
+    dataY = df['Y']
+    dataX = df.loc[:'Y']
+    return dataX, dataY
+
+
+def get_redwine():
+    df = pd.read_csv(f"{project_dir}/datasets/data/wine/redwine.csv", sep=';')
+    dataY = df['Y']
+    dataX = df.loc[:'Y']
+    return dataX, dataY
+
+
+def get_seeds():
+    df = pd.read_csv(f"{project_dir}/datasets/data/seeds/seeds.csv", sep=';')
+    dataY = df['Y']
+    dataX = df.loc[:'Y']
+    return dataX, dataY
+
+
+def get_whitewine():
+    df = pd.read_csv(f"{project_dir}/datasets/data/wine/redwine.csv", sep=';')
+    dataY = df['Y']
+    dataX = df.loc[:'Y']
+    return dataX, dataY

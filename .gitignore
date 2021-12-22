@@ -1,3 +1,9 @@
 # Ignore
-./idea
-./alib-52
+.idea/
+alib-52/
+gate/
+reports/
+src/__pycache__/
+venv/
+EGFET_PDK/
+datasets/files/
