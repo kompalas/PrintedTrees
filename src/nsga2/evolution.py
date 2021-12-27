@@ -40,10 +40,15 @@ class Evolution:
         mutation_param : Used in polynomial mutation. The default is 5.
         """
 
-        self.utils = NSGA2Utils(problem, num_of_individuals,
-                                num_of_tour_participants, tournament_prob,
-                                crossover_param, mutation_param,
-                                threads)
+        self.utils = NSGA2Utils(
+            problem=problem,
+            num_of_individuals=num_of_individuals,
+            num_of_tour_participants=num_of_tour_participants,
+            tournament_prob=tournament_prob,
+            crossover_param=crossover_param,
+            mutation_param=mutation_param,
+            threads=threads
+        )
         logger.info(f"Results for this run are saved in {self.utils.problem.resdir}")
         self.population = None
         self.num_of_generations = num_of_generations

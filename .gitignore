@@ -4,6 +4,12 @@ alib-52/
 gate/
 reports/
 src/__pycache__/
+src/nsga2/__pycache__/
 venv/
 EGFET_PDK/
 datasets/files/
+logs/*
+results/*
+
+# Allow
+results/comp_*/results*

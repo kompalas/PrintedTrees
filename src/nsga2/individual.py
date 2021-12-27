@@ -47,8 +47,8 @@ class Individual(object):
         if not self.objectives_calculated:
             # self.objectives = [f(self.features) for f in self.objective_functions]
 
-            # use this (the 0 index) for specific case! only one objective function returning
-            # all objective values
+            # NOTE: use this (the 0 index) for specific case: only one objective 
+            # function returning all objective values
             self.objectives = self.objective_functions[0](
                 self.features,
                 thread_index=thread_index

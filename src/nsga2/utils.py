@@ -1,7 +1,6 @@
 import concurrent.futures as cf
 from src import MAX_CROWDING_DISTANCE
 from src.nsga2.population import Population
-from src.nsga2.parallel_children import create_children_per_thread_outside
 from functools import partial
 from time import time
 from copy import deepcopy
@@ -35,10 +34,6 @@ class NSGA2Utils:
         self.threads = threads
         self.sols_per_thread = self.num_of_individuals // self.threads
         self.remaining_sols = self.num_of_individuals % self.threads
-        logger.debug(f"Solutions per thread: {self.sols_per_thread}")
-        logger.debug(f"Remaining solutions: {self.remaining_sols}")
-        # so that not many unnecessary children are created
-        self.num_of_children_to_return = 1  # if self.sols_per_thread % 2 != 0 else 2
 
         self.starts = {
             thread_id:  thread_id * self.sols_per_thread + min(self.remaining_sols, thread_id)
@@ -81,6 +76,11 @@ class NSGA2Utils:
         self.__mutation_f = self.__mutation_factory.get(
             self.problem.variable_type
         )
+
+        logger.debug(f"Solutions per thread: {self.sols_per_thread}")
+        logger.debug(f"Remaining solutions: {self.remaining_sols}")
+
+        logger.debug(f"Tournament participants: {self.num_of_tour_participants}")
         logger.debug(f"Selection function: {self.__selection_f.__name__}")
         logger.debug(f"Crossover function: {self.__crossover_f.__name__}")
         logger.debug(f"Mutation function: {self.__mutation_f.__name__}")
@@ -131,6 +131,7 @@ class NSGA2Utils:
         # select two non-equal parents
         parent1 = self.__selection_f(population)
         parent2 = parent1
+
         while parent1 == parent2:
             parent2 = self.__selection_f(population)
 
@@ -157,6 +158,7 @@ class NSGA2Utils:
     def create_children_serial(self, population):
         """Create children from a parent population. Single process"""
         children = []
+
         while len(children) < len(population):
             some_children = self.create_and_evaluate_children_core(population=population, thread_id=0)
             children.extend(some_children)

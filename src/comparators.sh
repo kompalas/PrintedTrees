@@ -8,7 +8,7 @@ maindir="$HOME/PrintedTrees"
 testdir="$maindir"
 
 date_time="$(date +"%d_%m_%Y__%H_%M")"
-resdir="$testdir/results/$date_time"
+resdir="$testdir/results/comp_$date_time"
 
 mkdir -p $resdir/reports
 mkdir -p $resdir/logs

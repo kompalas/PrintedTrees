@@ -4,15 +4,20 @@ from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 
 
-def get_data(dataset, input_bits):
+def get_data(dataset, input_bits=None):
     """Retrieve training and test data from a given dataset"""
     dataset_factory = {
+        'arrhythmia': get_arrhythmia,
         'balance': get_balance,
+        'breast_cancer': get_breast_cancer,
         'cardio': get_cardio,
+        'gasid': get_gasid,
+        'har': get_har,
         'mammographic': get_mammogr,
         'pendigits': get_pendigits,
         'redwine': get_redwine,
         'seeds': get_seeds,
+        'vertebral': get_vertebral,
         'whitewine': get_whitewine
     }
     get_dataset_f = dataset_factory.get(dataset.lower(), None)
@@ -24,12 +29,16 @@ def get_data(dataset, input_bits):
     scaler = MinMaxScaler(feature_range=(0, 1))
     dataX = scaler.fit_transform(dataX.to_numpy())
 
-    # restrict inputs to input_bits
-    dataX = 1/(2**input_bits) * (2**input_bits * dataX).astype(int)
-
+    if input_bits is not None:
+        # restrict inputs to input_bits
+        dataX = 1/(2**input_bits) * (2**input_bits * dataX).astype(int)
 
     x_train, x_test, y_train, y_test = train_test_split(dataX, dataY, test_size=0.3)
     return x_train, x_test, y_train, y_test
+
+
+def get_arrhythmia():
+    raise NotImplementedError
 
 
 def get_balance():
@@ -37,6 +46,10 @@ def get_balance():
     dataY = df['Y']
     dataX = df.loc[:'Y']
     return dataX, dataY
+
+
+def get_breast_cancer():
+    raise NotImplementedError
 
 
 def get_cardio():
@@ -50,6 +63,14 @@ def get_cardio():
     dataY = df['Y']
     dataX = df.loc[:'Y']
     return dataX, dataY
+
+
+def get_gasid():
+    raise NotImplementedError
+
+
+def get_har():
+    raise NotImplementedError
 
 
 def get_mammogr():
@@ -78,6 +99,10 @@ def get_seeds():
     dataY = df['Y']
     dataX = df.loc[:'Y']
     return dataX, dataY
+
+
+def get_vertebral():
+    raise NotImplementedError
 
 
 def get_whitewine():
