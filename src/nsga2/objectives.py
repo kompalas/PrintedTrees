@@ -10,9 +10,14 @@ def calculate_accuracy(y_true, y_pred, metric_name):
 
 def calculate_area(chromosome, constants, area_lut, bitwidth):
     if bitwidth is not None:
+        if bitwidth not in area_lut:
+            raise KeyError(f"Bitwidth {bitwidth} not considered in area measurements!")
+
         area = sum(
-            area_lut[bitwidth][constant] for constant in constants
+            area_lut[bitwidth][constant] if constant in area_lut[bitwidth] else 0
+            for constant in constants
         )
+
     else:
         area = sum(
             area_lut[chromosome[i+1]][chromosome[i]]
@@ -39,24 +44,25 @@ def calc_fitness(chromosome, tree, x_test, y_test, area_lut, bitwidth, original_
                  candidates, variables_range, accuracy_metric, thread_index=None):
 
     thresholds, constants = translate_chromosome(chromosome, bitwidth, original_thresholds)
-    logger.debug("")
-    logger.debug(f"Chromosome: {chromosome}")
-    logger.debug(f"Thresholds: {thresholds}")
-    logger.debug(f"Constants: {constants}")
-    logger.debug(f"Area calc: {[area_lut[bitwidth][constant] for constant in constants]}")
-
     area = calculate_area(chromosome, constants, area_lut, bitwidth)
-    logger.debug(f"Area: {area:.3e}")
 
     for i, threshold in enumerate(thresholds):
         tree.tree_.threshold[i] = threshold
 
-    logger.debug(f"New thresholds: {tree.tree_.threshold}")
     y_pred = tree.predict(x_test)
     accuracy = calculate_accuracy(y_test, y_pred, accuracy_metric)
-    logger.debug(f"Accuracy: {accuracy:.3e}")
+    accuracy_loss = 1 - accuracy
 
-    return accuracy, area
+    # logger.debug("")
+    # logger.debug(f"Chromosome: {chromosome}")
+    # logger.debug(f"Thresholds: {thresholds}")
+    # logger.debug(f"Constants: {constants}")
+    # logger.debug(f"Area calc: {[area_lut[bitwidth][constant] for constant in constants]}")
+    # logger.debug(f"Area: {area:.3e}")
+    # logger.debug(f"New thresholds: {tree.tree_.threshold}")
+    # logger.debug(f"Accuracy: {accuracy:.3e}")
+
+    return accuracy_loss, area
 
 
 def null_objective_function(*args, **kwargs):

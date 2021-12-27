@@ -1,0 +1,21 @@
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Results for this run are saved in /mnt/c/Users/User/Documents/PhD/PrintedTrees/results/temp
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: ----------------------------------
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Started at 27/12/2021 19:53:53
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 0 ----------
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Created initial population in time: 0.03721976280212402
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.026
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 6 solutions
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 4.699e-01 -> 4.699e-01
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 0.041s
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 0 -------
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 1 ----------
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.034
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 6 solutions
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 4.699e-01 -> 4.699e-01
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 0.049s
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 1 -------
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Ended at 27/12/2021 19:53:53
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: ------------------------------------
+27/12/2021 19:53:53 [src.nsga2.evolution] (MainProcess) INFO: Saved final population in /mnt/c/Users/User/Documents/PhD/PrintedTrees/results/temp/final_population.pkl

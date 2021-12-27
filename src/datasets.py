@@ -38,7 +38,10 @@ def get_data(dataset, input_bits=None):
 
 
 def get_arrhythmia():
-    raise NotImplementedError
+    df = pd.read_csv(f"{project_dir}/datasets/data/arrhythmia/arrhythmia.csv", sep=';')
+    dataY = df['Y']
+    dataX = df.loc[:'Y']
+    return dataX, dataY
 
 
 def get_balance():
@@ -49,7 +52,10 @@ def get_balance():
 
 
 def get_breast_cancer():
-    raise NotImplementedError
+    df = pd.read_csv(f"{project_dir}/datasets/data/breast_cancer/breast-cancer-wisconsin.csv", sep=';')
+    dataY = df['Y']
+    dataX = df.loc[:'Y']
+    return dataX, dataY
 
 
 def get_cardio():
@@ -70,7 +76,10 @@ def get_gasid():
 
 
 def get_har():
-    raise NotImplementedError
+    df = pd.read_csv(f"{project_dir}/datasets/data/har/har.csv", sep=';')
+    dataY = df['Y']
+    dataX = df.loc[:'Y']
+    return dataX, dataY
 
 
 def get_mammogr():
@@ -102,7 +111,10 @@ def get_seeds():
 
 
 def get_vertebral():
-    raise NotImplementedError
+    df = pd.read_csv(f"{project_dir}/datasets/data/vertebral/column_3C.csv", sep=';')
+    dataY = df['Y']
+    dataX = df.loc[:'Y']
+    return dataX, dataY
 
 
 def get_whitewine():
@@ -110,3 +122,13 @@ def get_whitewine():
     dataY = df['Y']
     dataX = df.loc[:'Y']
     return dataX, dataY
+
+
+if __name__ == "__main__":
+
+    df = pd.read_csv(f"{project_dir}/datasets/data/arrhythmia/arrhythmia.csv", sep=';')
+    scaler = MinMaxScaler(feature_range=(0, 1))
+    dataX = scaler.fit_transform(df.loc[:'Y'])
+    print(pd.DataFrame(dataX).describe())
+    print(len(df.columns))
+    print(df.columns)
