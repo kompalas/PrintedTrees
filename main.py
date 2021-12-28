@@ -10,6 +10,7 @@ from src.nsga2.evolution import Evolution
 import argparse
 import logging
 import traceback
+import pickle
 
 
 logger = logging.getLogger(__name__)
@@ -21,7 +22,7 @@ def main():
     parser.add_argument("--dataset", "-d", choices=ALL_DATASETS + [dataset.lower() for dataset in ALL_DATASETS],
                         help=f"Choose a dataset. Possible choices are {' | '.join(ALL_DATASETS)}")
     parser.add_argument("--input-bits", "-b", dest="input_bits", type=int,
-                        help="Specify the input bitwidth. If not specified, the input bits will be part of the"
+                        help="Specify the input bitwidth. If not specified, the input bits will be part of the "
                              "exploration, as an additional variable in the chromosome")
     parser.add_argument("--margin", "-m", type=int, default=5,
                         help="Specify the margin (+-) to consider for each approximation candidate")
@@ -73,6 +74,13 @@ def main():
 
     candidates, num_of_variables, variables_range = get_candidates(classifier, bitwidth=args.input_bits, leeway=args.margin)
     comp_area_lut = get_area_lut(area_record_file=args.area_file, filter_by_input_bits=args.input_bits)
+
+    with open(f"{args.results_dir}/clf.pkl", "wb") as f:
+        data = {
+            'x_train': x_train, 'y_train': y_train, 'x_test': x_test, 'y_test': y_test,
+            'dataset': args.dataset, 'bitwidth': args.input_bits
+        }
+        pickle.dump((data, classifier, candidates), f)
 
     objective_function = partial(
         calc_fitness,

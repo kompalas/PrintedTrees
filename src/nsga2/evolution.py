@@ -150,6 +150,9 @@ class Evolution:
     def on_start(self):
         """Utility function at beginning of evolution"""
         os.makedirs(self.utils.problem.resdir, exist_ok=True)
+        files_to_rm = glob(f"{self.utils.problem.resdir}/population*.pkl")
+        for file_to_rm in files_to_rm:
+            os.remove(file_to_rm)
 
         # log information to start
         start_time = datetime.now()
@@ -160,7 +163,7 @@ class Evolution:
     def on_generation(self, generation, time_elapsed):
         """Utility function at the end of each generation"""
         # save population to file
-        if generation % self.save_frequency == 0:
+        if self.save_frequency != -1 and generation % self.save_frequency == 0:
             with open(self.utils.problem.resdir + f'/population{generation}.pkl', 'wb') as f:
                 # save only the chromosomes and objective values
                 simplified_fronts = []
@@ -194,16 +197,17 @@ class Evolution:
         logger.info("Ended at {}".format(final_time.strftime("%d/%m/%Y %H:%M:%S")))
         logger.info("------------------------------------")
 
-        with open(self.utils.problem.resdir + f'/final_population.pkl', 'wb') as f:
-            # save only the chromosomes and objective values
-            simplified_fronts = []
-            for front in self.population.fronts:
-                features, objectives = [], []
-                for individual in front:
-                    features.append(individual.features)
-                    objectives.append(individual.objectives)
-                simplified_fronts.append([features, objectives])
+        if self.save_frequency != -1:
+            with open(self.utils.problem.resdir + f'/final_population.pkl', 'wb') as f:
+                # save only the chromosomes and objective values
+                simplified_fronts = []
+                for front in self.population.fronts:
+                    features, objectives = [], []
+                    for individual in front:
+                        features.append(individual.features)
+                        objectives.append(individual.objectives)
+                    simplified_fronts.append([features, objectives])
 
-            pickle.dump(simplified_fronts, f)
+                pickle.dump(simplified_fronts, f)
 
         logger.info(f"Saved final population in {self.utils.problem.resdir}/final_population.pkl")

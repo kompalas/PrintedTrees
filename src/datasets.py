@@ -4,7 +4,14 @@ from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 
 
-def get_data(dataset, input_bits=None):
+__all__ = [
+    'get_data',
+    'get_arrhythmia', 'get_balance', 'get_breast_cancer', 'get_cardio', 'get_gasid', 'get_har',
+    'get_mammogr', 'get_pendigits', 'get_redwine', 'get_seeds', 'get_vertebral', 'get_whitewine'
+]
+
+
+def get_data(dataset, input_bits=None, test_size=0.3):
     """Retrieve training and test data from a given dataset"""
     dataset_factory = {
         'arrhythmia': get_arrhythmia,
@@ -33,7 +40,7 @@ def get_data(dataset, input_bits=None):
         # restrict inputs to input_bits
         dataX = 1/(2**input_bits) * (2**input_bits * dataX).astype(int)
 
-    x_train, x_test, y_train, y_test = train_test_split(dataX, dataY, test_size=0.3)
+    x_train, x_test, y_train, y_test = train_test_split(dataX, dataY, test_size=test_size)
     return x_train, x_test, y_train, y_test
 
 

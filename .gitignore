@@ -5,11 +5,15 @@ gate/
 reports/
 src/__pycache__/
 src/nsga2/__pycache__/
+src/.ipynb_checkpoints/
 venv/
 EGFET_PDK/
 datasets/files/
 logs/*
-results/*
+results/comp_*/*
+results/temp/
 
 # Allow
-!results/comp_*/results*
+!results/**/results*.txt
+#!results/comp_19_12_2021__13_04/results_50ms.txt
+#!results/comp_17_12_2021__15_41/results_0ms.txt

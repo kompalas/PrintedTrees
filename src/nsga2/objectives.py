@@ -1,6 +1,11 @@
 import logging
 from sklearn import metrics
 
+all = [
+    'calculate_accuracy', 'calculate_area', 'translate_chromosome',
+    'calc_fitness', 'null_objective_function'
+]
+
 logger = logging.getLogger(__name__)
 
 
@@ -34,20 +39,28 @@ def translate_chromosome(chromosome, bitwidth, original_thresholds):
             next(chromosome_i) if original_thresholds[i] > 0 else original_thresholds[i]
             for i in range(len(original_thresholds))
         ]
+        bits = None
     else:
+        logger.error("Variable bitwidth in the chromosome is not supported yet")
         raise NotImplementedError
 
-    return thresholds, constants
+    return thresholds, constants, bits
 
 
 def calc_fitness(chromosome, tree, x_test, y_test, area_lut, bitwidth, original_thresholds,
                  candidates, variables_range, accuracy_metric, thread_index=None):
 
-    thresholds, constants = translate_chromosome(chromosome, bitwidth, original_thresholds)
+    assert len(chromosome) == len(candidates) == len(variables_range)
+
+    thresholds, constants, bits_i = translate_chromosome(chromosome, bitwidth, original_thresholds)
     area = calculate_area(chromosome, constants, area_lut, bitwidth)
 
-    for i, threshold in enumerate(thresholds):
-        tree.tree_.threshold[i] = threshold
+    thresholds_i = iter(thresholds)
+    for i in range(len(original_thresholds)):
+        if original_thresholds[i] > 0:
+            current_bitwidth = next(bits_i) if bitwidth is None else bitwidth
+            threshold = next(thresholds_i)
+            tree.tree_.threshold[i] = threshold * 1/(2**current_bitwidth)
 
     y_pred = tree.predict(x_test)
     accuracy = calculate_accuracy(y_test, y_pred, accuracy_metric)

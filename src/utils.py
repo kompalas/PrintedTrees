@@ -2,6 +2,7 @@ import random
 import logging.config
 import logging
 import os
+import warnings
 import pandas as pd
 import numpy as np
 from src import project_dir
@@ -48,9 +49,9 @@ def args_cfg(args):
         warnings.warn(f"Number of threads too large ({args.threads}). Setting to maximum available number of"
                       f"threads: {cpu_count()}")
         args.threads = cpu_count()
-    assert 0 < args.save_frequency <= args.generations,\
+    assert 0 < args.save_frequency <= args.generations or args.save_frequency == -1,\
         f"Invalid frequency {args.save_frequency}. Set a positive integer, that doesn't exceed" \
-        f" the number of generations ({args.generations})"
+        f" the number of generations ({args.generations}) or -1 for deactivating saving results"
 
     time = datetime.now().strftime("%d_%m_%Y__%H_%M")
     test = 'test__' if getattr(args, 'test', None) is True else ''
@@ -114,12 +115,12 @@ def get_candidates(decision_tree, bitwidth=None, leeway=0):
 
     else:
         thresholds = np.array([threshold for threshold in thresholds if threshold > 0])
+        print(len(thresholds))
         # TODO: find a more sophisticated way to represent variable input bits in candidates
         bits = [-1] * len(thresholds)
         candidates = [thresh_or_bit for thresh_and_bits in zip(thresholds, bits) for thresh_or_bit in thresh_and_bits]
         variables_range = [
-            tuple(range(1, 9))
-            if candidates == -1 else
+            tuple(range(1, 9)) if candidate == -1 else
             tuple(range(
                 candidate - leeway if candidate - leeway > 1 else 1,
                 candidate + leeway + 1
@@ -127,8 +128,8 @@ def get_candidates(decision_tree, bitwidth=None, leeway=0):
             for candidate in candidates
         ]
 
-    logger.debug(f"Kept thresholds: {thresholds}")
-    logger.debug(f"Candidates: {candidates}")
-    logger.debug(f"Variables range: {variables_range}")
+    logger.debug(f"Kept thresholds {len(thresholds)}: {thresholds}")
+    logger.debug(f"Candidates {len(candidates)}: {candidates}")
+    logger.debug(f"Variables range {len(variables_range)}: {variables_range}")
     num_of_variables = len(candidates)
     return candidates, num_of_variables, variables_range
