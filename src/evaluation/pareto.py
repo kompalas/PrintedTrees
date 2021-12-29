@@ -74,7 +74,7 @@ if __name__ == "__main__":
     with open(f"{args.results_dir}/{resfile}", "rb") as f:
         pop = pickle.load(f)
     with open(f"{args.results_dir}/clf.pkl", "rb") as f:
-        data, clf, candidates = pickle.load(f)
+        data, info, clf = pickle.load(f)
 
     all_fronts = extract_fronts(population=pop)
 

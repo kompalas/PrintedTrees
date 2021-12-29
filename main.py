@@ -76,11 +76,12 @@ def main():
     comp_area_lut = get_area_lut(area_record_file=args.area_file, filter_by_input_bits=args.input_bits)
 
     with open(f"{args.results_dir}/clf.pkl", "wb") as f:
-        data = {
-            'x_train': x_train, 'y_train': y_train, 'x_test': x_test, 'y_test': y_test,
-            'dataset': args.dataset, 'bitwidth': args.input_bits
+        data = {'x_train': x_train, 'y_train': y_train, 'x_test': x_test, 'y_test': y_test}
+        experiment_info = {
+            'candidates': candidates, 'variables_range': variables_range,
+            'dataset': args.dataset, 'bitwidth': args.input_bits, 'area_lut': comp_area_lut, 'leeway': args.margin
         }
-        pickle.dump((data, classifier, candidates), f)
+        pickle.dump((data, experiment_info, classifier), f)
 
     objective_function = partial(
         calc_fitness,
@@ -89,6 +90,7 @@ def main():
         y_test=y_test,
         area_lut=comp_area_lut,
         bitwidth=args.input_bits,
+        leeway=args.margin,
         original_thresholds=classifier.tree_.threshold,
         candidates=candidates,
         variables_range=variables_range,

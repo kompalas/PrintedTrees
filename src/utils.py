@@ -118,15 +118,17 @@ def get_candidates(decision_tree, bitwidth=None, leeway=0):
         print(len(thresholds))
         # TODO: find a more sophisticated way to represent variable input bits in candidates
         bits = [-1] * len(thresholds)
-        candidates = [thresh_or_bit for thresh_and_bits in zip(thresholds, bits) for thresh_or_bit in thresh_and_bits]
+
+        # candidates are constructed as one gene for bitwidth (-1), followed by a gene of the threshold (constant)
+        candidates = [thresh_or_bit for thresh_and_bits in zip(bits, thresholds) for thresh_or_bit in thresh_and_bits]
+
+        # new random chromosomes are sampled from this list
         variables_range = [
-            tuple(range(1, 9)) if candidate == -1 else
-            tuple(range(
-                candidate - leeway if candidate - leeway > 1 else 1,
-                candidate + leeway + 1
-            ))
+            tuple(range(2, 9)) if candidate == -1 else  # bits
+            tuple(range(0, 2*leeway + 1))  # thresholds
             for candidate in candidates
         ]
+        assert candidates[0] == -1, "Bits must preceed the threshold values in the mixed chromosome"
 
     logger.debug(f"Kept thresholds {len(thresholds)}: {thresholds}")
     logger.debug(f"Candidates {len(candidates)}: {candidates}")
