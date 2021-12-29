@@ -5,6 +5,7 @@ gate/
 reports/
 src/__pycache__/
 src/nsga2/__pycache__/
+src/evaluation/__pycache__/
 src/.ipynb_checkpoints/
 venv/
 EGFET_PDK/

@@ -77,8 +77,8 @@ def get_area_lut(area_record_file, filter_by_input_bits=None):
     """Get the area of multiple comparators with variable input bits and constants"""
     
     area_files = glob(area_record_file)
-    area_file = [file for file in area_files if '50ms' in file]
-    area_file = random.sample(area_files) if not area_file else area_file[0]
+    area_file = sorted([file for file in area_files if '50ms' in file], key=os.path.getctime)
+    area_file = random.sample(area_files) if not area_file else area_file[-1]
 
     area_df = pd.read_csv(area_file, sep='\t')
     if filter_by_input_bits:
@@ -115,7 +115,6 @@ def get_candidates(decision_tree, bitwidth=None, leeway=0):
 
     else:
         thresholds = np.array([threshold for threshold in thresholds if threshold > 0])
-        print(len(thresholds))
         # TODO: find a more sophisticated way to represent variable input bits in candidates
         bits = [-1] * len(thresholds)
 

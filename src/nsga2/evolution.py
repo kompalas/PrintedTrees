@@ -62,11 +62,11 @@ class Evolution:
         # initialize and sort population in fronts
         s = time()
         self.population = self.utils.create_initial_population()
-        logger.info(f"Created initial population in time: {time() - s}")
+        logger.info(f"Created initial population in time: {time() - s:.3f}")
 
         s = time()
         self.utils.fast_nondominated_sort(self.population)
-        logger.debug(f"Initial non-dominated sort time: {time() - s}")
+        logger.debug(f"Initial non-dominated sort time: {time() - s:.3f}")
 
         # calculate crowding distance
         s = time()

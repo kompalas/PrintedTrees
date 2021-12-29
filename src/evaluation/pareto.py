@@ -38,7 +38,7 @@ def get_results_file(generation=None, results_dir=None):
 
         if not os.path.exists(f"{results_dir}/{resfile}"):
             all_pop_files = glob(f"{results_dir}/population*.pkl")
-            assert all_pop_files != []
+            assert all_pop_files != [], "No files containing the GA population were found"
             max_gen = max([
                 int(re.search("population(\d+).pkl", resfile).group(1)) for resfile in all_pop_files
             ])
