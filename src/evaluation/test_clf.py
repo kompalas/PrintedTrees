@@ -55,6 +55,7 @@ if __name__ == "__main__":
         # load initialization data from experiment
         with open(f"{args.load_from}/clf.pkl", "rb") as f:
             data, info, clf = pickle.load(f)
+        dataset = info["dataset"]
 
         # figure out thresholds from chromosome
         chromosome = {
@@ -126,7 +127,7 @@ if __name__ == "__main__":
     graph = graphviz.Source(
         dot_data, format='pdf'
     )
-    graph.render(filename=f'{args.results_dir}/{info["dataset"]}_dtree_graph')
+    graph.render(filename=f'{args.results_dir}/{dataset}_dtree_graph')
 
     # save the decision tree object with pickle
     with open(f"{args.results_dir}/dtree.pkl", "wb") as f:
