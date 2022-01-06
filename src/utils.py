@@ -55,8 +55,8 @@ def args_cfg(args):
 
     time = datetime.now().strftime("%d_%m_%Y__%H_%M")
     test = 'test__' if getattr(args, 'test', None) is True else ''
-    args.results_dir = f"{project_dir}/results/ga/{test}{time}"
-    args.results_dir = f"{project_dir}/results/temp"
+    args.results_dir = f"{project_dir}/results/ga/{test}{args.dataset}_{time}"
+    # args.results_dir = f"{project_dir}/results/temp"
     os.makedirs(args.results_dir, exist_ok=True)
 
 

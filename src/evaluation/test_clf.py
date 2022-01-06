@@ -3,6 +3,7 @@ import pickle
 import argparse
 import graphviz
 import numpy as np
+from glob import glob
 from sklearn import tree
 from src import ALL_DATASETS, project_dir
 from src.evaluation.pareto import get_results_file, extract_fronts
@@ -16,12 +17,12 @@ if __name__ == "__main__":
                         help="Specify the input bitwidth. If not specified, the input bits will be part of the "
                              "exploration, as an additional variable in the chromosome")
     loaded_or_created = parser.add_mutually_exclusive_group(required=True)
-    loaded_or_created.add_argument("--load-from", '-l', dest='load_from',
-                                   help='Specify the directory where GA results are stored. From '
-                                        'there, the approximate Decision Tree will be constructed')
     loaded_or_created.add_argument("--dataset", "-d",
                                    choices=ALL_DATASETS + [dataset.lower() for dataset in ALL_DATASETS],
                                    help=f"Choose a dataset. Possible choices are {' | '.join(ALL_DATASETS)}")
+    loaded_or_created.add_argument("--load-from", '-l', dest='load_from',
+                                   help='Specify the directory where GA results are stored. From '
+                                        'there, the approximate Decision Tree will be constructed')
     parser.add_argument('--load-mode', '-lm', dest='ga_mode',
                         choices=['init', 'max_acc', 'max_area'], default='init',
                         help="Select an action when loading a decision tree from a GA experiment. Options are: "
@@ -29,12 +30,15 @@ if __name__ == "__main__":
                              "'min_area' for selecting the solution on the pareto front with smallest area, "
                              "'init' (default) for selecting the accurate classifier of the GA experiment")
     parser.add_argument("--results-dir", "-rd", help="Set the directory where results will be stored")
+    parser.add_argument("--to-pdf", dest='to_pdf', action='store_true', help="Set to export tree structure to pdf")
     args = parser.parse_args()
 
     # create results directory
     args.results_dir = f"{project_dir}/results" if args.results_dir is None else args.results_dir
     args.results_dir = args.results_dir[:-1] if args.results_dir[-1] == '/' else args.results_dir
     os.makedirs(args.results_dir, exist_ok=True)
+    for resfile in glob(f"{args.results_dir}/*"):
+        os.remove(resfile)
 
     # create a new classifier or load one from a GA experiment
     if not args.load_from:
@@ -66,7 +70,7 @@ if __name__ == "__main__":
 
         if chromosome:
             # translate the chromosome to thresholds
-            new_thresholds, *_ = translate_chromosome(
+            new_thresholds, constants, bits = translate_chromosome(
                 chromosome=chromosome, bitwidth=info['bitwidth'], leeway=info['leeway'], candidates=info['candidates']
             )
             # add new thresholds (constants) to decision tree
@@ -74,6 +78,12 @@ if __name__ == "__main__":
             for i in range(len(clf.tree_.threshold)):
                 if clf.tree_.threshold[i] > 0:
                     clf.tree_.threshold[i] = next(new_thresholds_i)
+
+            # save bits per feature for later use, whether the same or different
+            assert bits != [] or info['bitwidth'] is not None
+            bits = [info['bitwidth']] * len(constants) if bits == [] else bits
+            with open(f'{args.results_dir}/inp_bits.pkl', 'wb') as f:
+                pickle.dump(bits, f)
 
     # basic information about the classifier
     n_nodes = clf.tree_.node_count
@@ -90,11 +100,9 @@ if __name__ == "__main__":
         node_id, depth = stack.pop()
         node_depth[node_id] = depth
 
-        # If the left and right child of a node is not the same we have a split
-        # node
+        # If the left and right child of a node is not the same we have a split node
         is_split_node = children_left[node_id] != children_right[node_id]
-        # If a split node, append left and right children and depth to `stack`
-        # so we can loop through them
+        # If a split node, append left and right children and depth to `stack` so we can loop through them
         if is_split_node:
             stack.append((children_left[node_id], depth + 1))
             stack.append((children_right[node_id], depth + 1))
@@ -120,14 +128,13 @@ if __name__ == "__main__":
             )
 
     # export graph in dot and pdf format
-    dot_data = tree.export_graphviz(
-        decision_tree=clf,
-        node_ids=True,
-    )
-    graph = graphviz.Source(
-        dot_data, format='pdf'
-    )
-    graph.render(filename=f'{args.results_dir}/{dataset}_dtree_graph')
+    if args.to_pdf:
+        dot_data = tree.export_graphviz(
+            decision_tree=clf,
+            node_ids=True,
+        )
+        graph = graphviz.Source(dot_data, format='pdf')
+        graph.render(filename=f'{args.results_dir}/{dataset}_dtree_graph')
 
     # save the decision tree object with pickle
     with open(f"{args.results_dir}/dtree.pkl", "wb") as f:

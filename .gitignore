@@ -1,8 +1,12 @@
 # Ignore
 .idea/
 alib-52/
+work/
+work_gate/
+sim/
 gate/
 reports/
+src/.nfs*
 src/__pycache__/
 src/nsga2/__pycache__/
 src/evaluation/__pycache__/
@@ -10,9 +14,11 @@ src/.ipynb_checkpoints/
 venv/
 EGFET_PDK/
 datasets/files/
+printedtrees.egg-info/
 logs/*
 results/comp_*/*
 results/temp/
+results/ga/*
 
 # Allow
 !results/**/results*.txt

@@ -33,11 +33,12 @@ area_rpt="$testdir/reports/top_$((synclk*1000000))ns.area.rpt"
 dclog="$testdir/logs/dcsyn.log"
 netl="$testdir/gate/top.sv"
 
-for bits in $(seq 2 8); do
+for bits in $(seq 1 8); do
     sed -i "/parameter width =/ c\parameter width = $bits;" hdl/top.v
 
     low="0"
     high="$(((2 ** $bits) - 2))"
+    high="255"
 
     for c in $(seq $low $high); do
         sed -i "/parameter c =/ c\parameter c = $c\;" hdl/top.v

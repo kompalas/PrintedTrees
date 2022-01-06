@@ -141,9 +141,7 @@ class NSGA2Utils:
             # stochastically mutate the children's chromosomes
             self.__mutation_f(child)
             # calculate their objective function
-            s = time()
             child.calculate_objectives(thread_index=thread_id)
-            logger.debug(f"Child (in thread {thread_id}) evaluated in time: {time() - s:.3f}s")
         return children
 
     def create_children_parallel(self, population):
@@ -236,22 +234,6 @@ class NSGA2Utils:
             child2.features[i] = x1 - beta*x2
         return child1, child2
 
-    def uniform_crossover(self, *parents):
-        """Uniform crossover for discrete-valued genes"""
-        child1 = self.problem.generate_individual()
-        child2 = self.problem.generate_individual()
-
-        for i in range(len(child1.features)):
-            # if crossover is selected for this gene...
-            if random.random() < self.crossover_param:
-                # ...each child randomly takes a chromosome of one parent
-                idx = random.choice([0, 1])
-                parent_for_child1 = parents[idx]
-                parent_for_child2 = parents[1 - idx]
-                child1.features[i] = parent_for_child1.features[i]
-                child2.features[i] = parent_for_child2.features[i]
-        return child1, child2
-
     def uniform_crossover_single_child(self, *parents):
         """Uniform crossover for discrete-valued genes"""
         child = self.problem.generate_individual()
@@ -296,9 +278,9 @@ class NSGA2Utils:
         for gene in range(self.problem.num_of_variables):
             # randomly change a selected number of genes
             if self.__choose_with_prob(self.mutation_param):
-                child.features[gene] = random.choice(
-                    self.problem.variables_range[gene]
-                )
+                child.features[gene] = random.choice([
+                    vrange for vrange in self.problem.variables_range[gene] if vrange != child.features[gene]
+                ])
 
     def tournament(self, population):
         """Tournament selection function"""
