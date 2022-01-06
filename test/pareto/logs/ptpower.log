@@ -1,0 +1,148 @@
+
+                                 PrimeTime (R)
+
+               Version S-2021.06-SP1 for linux64 - Jul 13, 2021 
+
+                    Copyright (c) 1988 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+#setup libs
+set dcpath $::env(SNPS_SYN)
+/Software/synopsys/2017/syn_vM-2016.12-SP4
+if {[string index $dcpath end] != "/"} {
+        set DC_LIB_PATH ${dcpath}/libraries/syn/
+} else {
+        set DC_LIB_PATH ${dcpath}libraries/syn/
+}
+/Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/
+set LIB_DB_PATH $::env(ENV_LIBRARY_PATH)
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files
+if {[string index $LIB_DB_PATH end] != "/"} { set LIB_DB_PATH "${LIB_DB_PATH}/" }
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/
+set LIB_DB_NAME $::env(ENV_LIBRARY_DB)
+PPDK_Standard_Library_1.0V_25C_TYP_X1.db
+set curDir [pwd]
+/home/balkon00/PrintedTrees/test/pareto
+set search_path [list ${LIB_DB_PATH} ${DC_LIB_PATH} ${curDir}/gate/]
+/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/ /Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/ /home/balkon00/PrintedTrees/test/pareto/gate/
+set synthetic_library {dw_foundation.sldb}
+dw_foundation.sldb
+set link_path [list ${LIB_DB_NAME} ${synthetic_library} *]
+PPDK_Standard_Library_1.0V_25C_TYP_X1.db dw_foundation.sldb *
+#read files
+set top_design $::env(ENV_TOP_DESIGN)
+top
+read_verilog ./gate/${top_design}.sv
+1
+current_design $top_design
+Information: current_design won't return any data before link (DES-071)
+link_design
+Loading verilog file '/home/balkon00/PrintedTrees/test/pareto/gate/top.sv'
+Loading db file '/Software/synopsys/2017/syn_vM-2016.12-SP4/libraries/syn/dw_foundation.sldb'
+Loading db file '/home/balkon00/PrintedTrees/EGFET_PDK/lib_files/PPDK_Standard_Library_1.0V_25C_TYP_X1.db'
+Linking design top...
+Information: 8 (72.73%) library cells are unused in library PPDK_Standard_Library_1.0V_25C_TYP_X1..... (LNK-045)
+Information: 301 (100.00%) library cells are unused in library dw_foundation.sldb..... (LNK-045)
+Information: total 309 library cells are unused (LNK-046)
+Design 'top' was successfully linked.
+Information: There are 16 leaf cells, ports, hiers and 13 nets in the design (LNK-047)
+1
+read_sdf ./gate/${top_design}.sdf
+
+****************************************
+Report : read_sdf /home/balkon00/PrintedTrees/test/pareto/gate/top.sdf
+	-load_delay cell
+	-analysis_type on_chip_variation
+	-min_type sdf_min
+	-max_type sdf_max
+Design : top
+Version: S-2021.06-SP1
+Date   : Thu Jan  6 19:11:42 2022
+****************************************
+
+        0 error(s)
+        Number of annotated cell delay arcs :         5
+        Number of annotated net delay arcs  :         5
+        Number of annotated timing checks   :         0
+        TEMPERATURE: 25.00 (min)  25.00 (max)
+        VOLTAGE    : 1.00 (min)  1.00 (max)
+        PROCESS    : TT (min)  TT (max)
+1
+#sdc
+source ./scripts/sdc.tcl
+Warning: Creating virtual clock named 'clk' with no sources. (UITE-121)
+1
+1
+#power
+set power_enable_analysis true
+Information: Checked out license 'PrimePower' (PT-019)
+true
+set power_analysis_mode averaged
+averaged
+set vcdfile $::env(ENV_VCDFILE)
+/home/balkon00/PrintedTrees/test/pareto/sim/top.vcd.gz
+set dut $::env(ENV_DUT_NAME)
+DUT
+set tb $::env(ENV_TB_NAME)
+top_tb
+read_vcd -strip_path ${tb}/${dut} ${vcdfile}
+Information: Reading file top.vcd.gz to annotate toggle rates on the design...
+Information: Reading vcd file '/home/balkon00/PrintedTrees/test/pareto/sim/top.vcd.gz'
+Information: Simulation Start Time : 0.000000 ns, Simulation End Time : 4999951276050.000000 ns, Total Simulation Time : 4999951276050.000000 ns
+
+======================================================================
+Summary:
+Total number of nets = 11
+Number of annotated nets = 11 (100.00%)
+Total number of leaf cells = 3
+Number of fully annotated leaf cells = 3 (100.00%)
+======================================================================
+
+Information: Total number of synthesis invariant points = 8 , annotated synthesis invariant points = 8, annotation_ratio = 100.00%
+1
+update_power
+Information: Building multi voltage information for entire design. (MV-022)
+Information: Running averaged power analysis... (PWR-601)
+Information: Running power calculation with 4 threads. (PWR-602)
+1
+#reports
+set clk_period $::env(ENV_CLK_PERIOD)
+50000000
+report_power > ./reports/${top_design}_${clk_period}ns.power.ptpx.rpt
+report_power -hierarchy > ./reports/${top_design}_${clk_period}ns.hierarchy.power.ptpx.rpt
+write_saif ./gate/${top_design}.saif
+1
+quit
+Information: Defining new variable 'top_design'. (CMD-041)
+Information: Defining new variable 'dut'. (CMD-041)
+Information: Defining new variable 'tb'. (CMD-041)
+Information: Defining new variable 'virtual_clock'. (CMD-041)
+Information: Defining new variable 'dcpath'. (CMD-041)
+Information: Defining new variable 'curDir'. (CMD-041)
+Information: Defining new variable 'clk_period'. (CMD-041)
+Information: Defining new variable 'LIB_DB_NAME'. (CMD-041)
+Information: Defining new variable 'synthetic_library'. (CMD-041)
+Information: Defining new variable 'vcdfile'. (CMD-041)
+Information: Defining new variable 'DC_LIB_PATH'. (CMD-041)
+Information: Defining new variable 'LIB_DB_PATH'. (CMD-041)
+
+Timing updates: 1 (1 implicit, 0 explicit) (0 incremental, 1 full, 0 logical)
+Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
+Maximum memory usage for this session: 2771.63 MB
+CPU usage for this session: 3 seconds 
+Elapsed time for this session: 3 seconds
+Diagnostics summary: 1 warning, 21 informationals
+
+Thank you for using pt_shell!

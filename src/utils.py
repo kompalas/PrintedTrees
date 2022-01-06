@@ -104,7 +104,7 @@ def get_candidates(decision_tree, bitwidth=None, leeway=0):
 
     if bitwidth is not None:
         thresholds = np.array([threshold for threshold in thresholds if threshold > 0])
-        candidates = (2**bitwidth * thresholds).astype(int)
+        candidates = np.around(thresholds * 2**bitwidth).astype(int)
         variables_range = [
             tuple(range(
                 candidate - leeway if candidate - leeway > 1 else 1,

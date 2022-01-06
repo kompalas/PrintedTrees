@@ -10,11 +10,12 @@ logger = logging.getLogger(__name__)
 
 
 def calculate_accuracy(y_true, y_pred, metric_name):
+    """Calculate classifier accuracy"""
     return metrics.__dict__[metric_name + '_score'](y_true, y_pred)
 
 
 def calculate_area(constants, area_lut, bits):
-
+    """Estimate the area based on the comparator constants and the input bitwidth"""
     area = 0
     for bit, constant in zip(bits, constants):
         if bit not in area_lut:
@@ -43,7 +44,7 @@ def translate_chromosome(chromosome, bitwidth, leeway, candidates):
                 bits.append(bit)
             else:
                 margin = gene - leeway  # gene here represents a number between [0, 2*leeway]
-                constant = int(candidate * (2**bit)) + margin  # to an integer close to original threshold
+                constant = int(round(candidate * (2**bit))) + margin  # to an integer close to original threshold
                 constants.append(constant)
                 threshold = constant * 1/(2**bit)  # back to floating point for new threshold
                 thresholds.append(threshold)
@@ -53,7 +54,7 @@ def translate_chromosome(chromosome, bitwidth, leeway, candidates):
 
 def calc_fitness(chromosome, tree, x_test, y_test, area_lut, bitwidth, leeway, original_thresholds,
                  candidates, variables_range, accuracy_metric, thread_index=None):
-
+    """Calculate the fitness of an approximate solution"""
     assert len(chromosome) == len(candidates) == len(variables_range)
 
     thresholds, constants, bits = translate_chromosome(
@@ -90,4 +91,5 @@ def calc_fitness(chromosome, tree, x_test, y_test, area_lut, bitwidth, leeway, o
 
 
 def null_objective_function(*args, **kwargs):
+    """Dummy objective function"""
     pass

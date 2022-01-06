@@ -19,6 +19,12 @@ logs/*
 results/comp_*/*
 results/temp/
 results/ga/*
+test/**/sim/
+test/**/gate/
+test/**/reports/
+test/**/work/
+test/**/work_gate/
+test/**/netlists/
 
 # Allow
 !results/**/results*.txt

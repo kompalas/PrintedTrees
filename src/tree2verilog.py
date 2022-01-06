@@ -1,3 +1,5 @@
+import os.path
+
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import _tree
 from numpy import binary_repr
@@ -123,7 +125,7 @@ def to_fixed(f,e):
     return b
 
 
-def tree_to_code(tree, inp_widths, comp_bits, inpprefix, outname, tb_inputs_file):
+def tree_to_code(tree, inp_widths, comp_bits, inpprefix, outname, tb_inputs_file, overwrite_inputs=False):
     tree_ = tree.tree_
     out_width = get_width(max(tree.classes_))
     feature_name = [
@@ -151,7 +153,9 @@ def tree_to_code(tree, inp_widths, comp_bits, inpprefix, outname, tb_inputs_file
             if node_bits == inp_width[name]:
                 logger_v.info("{} ({} <= {})?".format(indent, name, threshold))
             elif node_bits < inp_width[name]:
-                logger_v.info("{} ({}[{}:{}] <= {})?".format(indent, name, inp_width[name] - 1, inp_width[name] - node_bits, threshold))
+                logger_v.info("{} ({}[{}:{}] <= {})?".format(
+                    indent, name, inp_width[name] - 1, inp_width[name] - node_bits, threshold
+                ))
             else:
                 raise ValueError(f"Invalid number of bits {comp_bits}, larger than input width {inp_width[name]}")
 
@@ -167,11 +171,16 @@ def tree_to_code(tree, inp_widths, comp_bits, inpprefix, outname, tb_inputs_file
     print()
 
     # build testbench file
-    period = 0
-    create_inputs_file(inputs_file=tb_inputs_file, input_width_dict=inp_width)
+    if overwrite_inputs:
+        create_inputs_file(inputs_file=tb_inputs_file, input_width_dict=inp_width)
+
     tb_output_file = tb_inputs_file.replace('inputs', 'output')
     tb_text = get_tb_text(
-        input_width_dict=inp_width, sim_period=period, input_tb_file=tb_inputs_file, output_tb_file=tb_output_file, output_width_dict={outname: out_width}
+        input_width_dict=inp_width,
+        sim_period=0,
+        input_tb_file=tb_inputs_file,
+        output_tb_file=tb_output_file,
+        output_width_dict={outname: out_width}
     )
     logger_tb.info(tb_text)
 
@@ -180,16 +189,29 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--results-dir", "-rd", dest='results_dir',
-                        help="Specify the directory contnaining the pickled tree object (and optionally the feature bitwidths)")
+                        help="Specify the directory contnaining the pickled tree object (and optionally the"
+                             " feature bitwidths)")
     parser.add_argument("--verilog-file", "-v", dest='verilog_file',
                         help='Specify the output verilog file')
+    parser.add_argument('--tb-inputs-file', '-tbi', dest='inputs_file', default='./sim/inputs.txt',
+                        help="Specify the file where testbench inputs will be written. Default is './sim/inputs.txt'")
+    parser.add_argument('--new-inputs', action='store_true', dest='new_inputs',
+                        help='Set to overwrite the specified inputs file for the testbench.')
 
     args = parser.parse_args()
+
+    # configure inputs file for the testbench
+    assert 'inputs' in args.inputs_file
+    assert os.path.exists(args.inputs_file) or args.new_inputs
+
+    # configure results directory
     assert args.results_dir is not None and args.verilog_file is not None
     args.results_dir = args.results_dir[:-1] if args.results_dir[-1] == '/' else args.results_dir
+    assert '.v' in args.verilog_file
     args.tb_file = args.verilog_file.replace('.v', '_tb.v')
 
-    logger_v = logging_cfg('verlog', args.verilog_file)
+    # logger are responsible for writing verilog files
+    logger_v = logging_cfg('verilog', args.verilog_file)
     logger_tb = logging_cfg('tb', args.tb_file)
 
     with open(f'{args.results_dir}/dtree.pkl', "rb") as f:
@@ -197,10 +219,18 @@ if __name__ == "__main__":
 
     try:
         with open(f"{args.results_dir}/inp_bits.pkl", "rb") as f:
-           comp_bits  = pickle.load(f)
+           comp_bits = pickle.load(f)
     except FileNotFoundError:
-        comp_bits = [8] * len(feature for feature in tr.tree_.feature if feature != _tree.TREE_UNDEFINED)
+        comp_bits = [8] * len([feature for feature in tr.tree_.feature if feature != _tree.TREE_UNDEFINED])
 
     inp_widths = [8] * len({feature for feature in tr.tree_.feature if feature != _tree.TREE_UNDEFINED})
     
-    tree_to_code(tr, inp_widths, comp_bits, "X", "out", tb_inputs_file='./sim/inputs.txt')
+    tree_to_code(
+        tree=tr,
+        inp_widths=inp_widths,
+        comp_bits=comp_bits,
+        inpprefix="X",
+        outname="out",
+        tb_inputs_file=args.inputs_file,
+        overwrite_inputs=args.new_inputs
+    )
