@@ -5,8 +5,8 @@ set -eou pipefail
 set -x
 
 ga_results_dir="${1?Specify the directory where GA results are stored as the first positional argument}"
-synclk="${2?Specify the clock period IN MILISECONDS for synthesis as the second positional argument}"
-keep="${3:-20}"
+keep="${2?Specify the amount of pareto solutions to keep as the second positional argument}"
+synclk="${3:-50}"  # Specify the clock period IN MILISECONDS for synthesis
 
 # remove slash if it is the last character of the directory
 if [[ ${ga_results_dir: -1} == "/" ]]; then

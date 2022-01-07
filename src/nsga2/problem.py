@@ -34,11 +34,9 @@ class Problem:
 
         # configure function to generate new random individuals
         self.__generation_factory = {
-            'continuous': self.generate_individual_continuous,
-            'discrete': self.generate_individual_discrete
+            'real': self.generate_individual_continuous,
+            'int': self.generate_individual_discrete
         }
-        assert variable_type in ('continuous', 'discrete'), \
-            f"""Variable type {variable_type} is invalid. Choose among: {list(self.__generation_factory.keys())}"""
         self.variable_type = variable_type
         # depending on the type of variable, choose generation function
         self.generate_individual = self.__generation_factory.get(self.variable_type)
@@ -50,7 +48,7 @@ class Problem:
     def generate_individual_continuous(self):
         """Generate individual with real-valued genes"""
         individual = Individual(self.objective_functions)
-        features = [random.uniform(*x) for x in self.variables_range]
+        features = [random.uniform(*variable_range) for variable_range in self.variables_range]
         individual.set_features(features)
         return individual
 

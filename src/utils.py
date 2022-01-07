@@ -9,6 +9,7 @@ from src import project_dir
 from glob import glob
 from multiprocessing import cpu_count
 from datetime import datetime
+from copy import deepcopy
 
 
 __all__ = [
@@ -96,11 +97,15 @@ def get_area_lut(area_record_file, filter_by_input_bits=None):
     return area_lut
 
 
-def get_candidates(decision_tree, bitwidth=None, leeway=0):
-    """Get the chromosome candidate variables"""
-    thresholds = decision_tree.tree_.threshold
-    assert not all(threshold < 0 for threshold in thresholds), "No valid comparators in the decision tree!"
+def get_candidates_discrete(decision_tree, bitwidth=None, leeway=0):
+    """Get the chromosome candidate variables for integer-valued genes"""
+    # NOTE: This is necessary in order to not create a reference of the classifer threshold
+    thresholds = deepcopy(decision_tree.tree_.threshold)
     logger.debug(f"Original thresholds: {thresholds}")
+
+    assert not any(threshold == 0 for threshold in thresholds), "At least one comparator is unnecessary. Check the" \
+                                                                "method for initializing the decision tree"
+    assert not all(threshold < 0 for threshold in thresholds), "No valid comparators in the decision tree!"
 
     if bitwidth is not None:
         thresholds = np.array([threshold for threshold in thresholds if threshold > 0])
@@ -134,3 +139,22 @@ def get_candidates(decision_tree, bitwidth=None, leeway=0):
     logger.debug(f"Variables range {len(variables_range)}: {variables_range}")
     num_of_variables = len(candidates)
     return candidates, num_of_variables, variables_range
+
+
+def get_candidates_continuous(decision_tree, bitwidth=None, leeway=0):
+    """Get the chromosome candidate variables for integer-valued genes"""
+    candidates = []
+    variables_range = []
+
+
+    raise NotImplementedError
+
+    num_of_variables = len(variables_range)
+    return candidates, num_of_variables, variables_range
+
+
+def get_candidates(decision_tree, bitwidth=None, leeway=0, gene_type='int'):
+    return {
+        'int': get_candidates_discrete,
+        'real': get_candidates_continuous
+    }.get(gene_type)(decision_tree, bitwidth, leeway)

@@ -27,8 +27,10 @@ class NSGA2Utils:
         self.num_of_individuals = num_of_individuals
         self.num_of_tour_participants = num_of_tour_participants
         self.tournament_prob = tournament_prob
-        self.crossover_param = crossover_param
-        self.mutation_param = mutation_param
+
+        # TODO: find a better way to assign params for 'real' variable type
+        self.crossover_param = crossover_param if self.problem.variable_type == 'int' else 2
+        self.mutation_param = mutation_param if self.problem.variable_type == 'int' else 5
 
         # parallel execution variables
         self.threads = threads
@@ -56,16 +58,16 @@ class NSGA2Utils:
         # select selection, crossover and mutation functions based on the type
         # of genes in the chromosomes: continues values or discrete
         self.__selection_factory = {
-            'continuous': self.tournament,
-            'discrete': self.tournament
+            'real': self.tournament,
+            'int': self.tournament
         }
         self.__crossover_factory = {
-            'continuous': self.sbc_crossover,
-            'discrete': self.uniform_crossover_single_child
+            'real': self.sbc_crossover,
+            'int': self.uniform_crossover_single_child
         }
         self.__mutation_factory = {
-            'continuous': self.pol_mutate,
-            'discrete': self.random_mutation
+            'real': self.pol_mutation,
+            'int': self.random_mutation
         }
         self.__selection_f = self.__selection_factory.get(
             self.problem.variable_type
@@ -253,7 +255,7 @@ class NSGA2Utils:
             return (2*u)**(1/(self.crossover_param+1))
         return (2*(1-u))**(-1/(self.crossover_param+1))
 
-    def pol_mutate(self, child):
+    def pol_mutation(self, child):
         """Polynomial mutation for real-valued genes"""
         for gene in range(len(child.features)):
             u, delta = self.__get_delta()

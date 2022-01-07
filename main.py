@@ -1,6 +1,6 @@
-import pandas as pd
 from sklearn import tree
 from functools import partial
+from copy import deepcopy
 from src import ALL_DATASETS, ALL_ACCURACY_METRICS, project_dir
 from src.datasets import get_data
 from src.utils import env_cfg, get_area_lut, get_candidates
@@ -11,7 +11,7 @@ import argparse
 import logging
 import traceback
 import pickle
-
+import pandas as pd
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +26,7 @@ def main():
                              "exploration, as an additional variable in the chromosome")
     parser.add_argument("--margin", "-m", type=int, default=5,
                         help="Specify the margin (+-) to consider for each approximation candidate")
-    parser.add_argument("--accuracy-metric", "-a", choices=ALL_ACCURACY_METRICS, default=ALL_ACCURACY_METRICS[0],
+    parser.add_argument("--accuracy-metric", "-a", choices=ALL_ACCURACY_METRICS, default='accuracy',
                         help="Specify an accuracy metric. Possible choices are {' | '.join(ALL_ACCURACY_METRICS)}")
     parser.add_argument("--verbose", '-v', action='store_true',
                         help='Set to print debug logging messages to console.')
@@ -34,6 +34,8 @@ def main():
                         help="Specify the file where area measurements per comparator are taken")
     parser.add_argument("--num-of-objectives", "-o", dest='num_of_objectives', type=int, choices=[1, 2], default=2,
                         help='Choose the number of objectives: 1 or 2 (default)')
+    parser.add_argument('--gene-type', '-gt', choices=['real', 'int'], default='int', dest='gene_type',
+                        help="Specify the numerical type of chromosome genes: 'real' or 'int'")
     parser.add_argument("--frequency", '-f', type=int, default=1, dest='save_frequency',
                         help="Specify the frequency of saving the population results, in terms of generations."
                              " Default is 1 for saving every generation")
@@ -72,7 +74,9 @@ def main():
     y_pred = classifier.predict(x_test)
     logger.debug(f"Initial test accuracy: {len(y_pred[y_pred == y_test])/len(y_pred):.3e}")
 
-    candidates, num_of_variables, variables_range = get_candidates(classifier, bitwidth=args.input_bits, leeway=args.margin)
+    candidates, num_of_variables, variables_range = get_candidates(
+        classifier, bitwidth=args.input_bits, leeway=args.margin, gene_type=args.gene_type
+    )
     comp_area_lut = get_area_lut(area_record_file=args.area_file, filter_by_input_bits=args.input_bits)
 
     with open(f"{args.results_dir}/clf.pkl", "wb") as f:
@@ -91,16 +95,18 @@ def main():
         area_lut=comp_area_lut,
         bitwidth=args.input_bits,
         leeway=args.margin,
-        original_thresholds=classifier.tree_.threshold,
+        original_thresholds=deepcopy(classifier.tree_.threshold),
         candidates=candidates,
         variables_range=variables_range,
-        accuracy_metric=args.accuracy_metric
+        accuracy_metric=args.accuracy_metric,
+        gene_type=args.gene_type,
+        verbose=args.verbose
     )
     problem = Problem(
         objective_functions=[objective_function] + [null_objective_function] * (args.num_of_objectives - 1),
         num_of_variables=num_of_variables,
         variables_range=variables_range,
-        variable_type='discrete',
+        variable_type=args.gene_type,
         resdir=args.results_dir
     )
     GA = Evolution(

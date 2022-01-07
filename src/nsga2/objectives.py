@@ -24,8 +24,8 @@ def calculate_area(constants, area_lut, bits):
     return area
 
 
-def translate_chromosome(chromosome, bitwidth, leeway, candidates):
-    """Deconstruct chromosome into decision tree thresholds (for accuracy calculation),
+def translate_chromosome_discrete(chromosome, bitwidth, leeway, candidates, verbose=False):
+    """Deconstruct chromosome of integer-valued genes into decision tree thresholds (for accuracy calculation),
      the comparison constants (for area calculation) and the bitwidth used (per gene or uniformly)"""
 
     if bitwidth is not None:
@@ -45,23 +45,59 @@ def translate_chromosome(chromosome, bitwidth, leeway, candidates):
             else:
                 margin = gene - leeway  # gene here represents a number between [0, 2*leeway]
                 constant = int(round(candidate * (2**bit))) + margin  # to an integer close to original threshold
+                constant = 0 if constant < 0 else constant  # comparing with a negative constant is mute
                 constants.append(constant)
                 threshold = constant * 1/(2**bit)  # back to floating point for new threshold
+                threshold = 1 if threshold > 1 else threshold  # no point comparing with a number
+                                                               # larger than 1, all data fall in [0, 1]
                 thresholds.append(threshold)
+
+                if verbose:
+                    logger.debug(f"\tcandidate {candidate}, gene {gene}")
+                    logger.debug(f"\tmargin {margin}, bit {bit}, constant {constant}, threshold {threshold}")
 
     return thresholds, constants, bits
 
 
+def translate_chromosome_continuous(chromosome, bitwidth, leeway, candidates, verbose=False):
+    """Deconstruct chromosome of real-valued genes into decision tree thresholds (for accuracy calculation),
+     the comparison constants (for area calculation) and the bitwidth used (per gene or uniformly)"""
+
+    if bitwidth is not None:
+        constants, thresholds, bits = [], [], []
+        pass
+
+    else:
+        constants, thresholds, bits = [], [], []
+        pass
+
+    raise NotImplementedError
+    return thresholds, constants, bits
+
+
+def translate_chromosome(chromosome, bitwidth, leeway, candidates, gene_type='int', verbose=False):
+    return {
+        'int': translate_chromosome_discrete,
+        'real': translate_chromosome_continuous
+    }.get(gene_type)(chromosome, bitwidth, leeway, candidates, verbose)
+
+
 def calc_fitness(chromosome, tree, x_test, y_test, area_lut, bitwidth, leeway, original_thresholds,
-                 candidates, variables_range, accuracy_metric, thread_index=None):
+                 candidates, variables_range, accuracy_metric, gene_type, verbose=False, thread_index=None):
     """Calculate the fitness of an approximate solution"""
     assert len(chromosome) == len(candidates) == len(variables_range)
+
+    # reset thresholds
+    for i, og_threshold in enumerate(original_thresholds):
+        tree.tree_.threshold[i] = og_threshold
 
     thresholds, constants, bits = translate_chromosome(
         chromosome=chromosome,
         bitwidth=bitwidth,
         leeway=leeway,
-        candidates=candidates
+        candidates=candidates,
+        gene_type=gene_type,
+        verbose=verbose
     )
     area = calculate_area(
         constants=constants,
@@ -78,14 +114,15 @@ def calc_fitness(chromosome, tree, x_test, y_test, area_lut, bitwidth, leeway, o
     accuracy = calculate_accuracy(y_test, y_pred, accuracy_metric)
     accuracy_loss = 1 - accuracy
 
-    # logger.debug("")
-    # logger.debug(f"Chromosome: {chromosome}")
-    # logger.debug(f"Thresholds: {thresholds}")
-    # logger.debug(f"Constants: {constants}")
-    # logger.debug(f"Bits: {bits}")
-    # logger.debug(f"Area: {area:.3e}")
-    # logger.debug(f"New thresholds: {tree.tree_.threshold}")
-    # logger.debug(f"Accuracy: {accuracy:.3e}")
+    if verbose:
+        logger.debug(f"Chromosome: {chromosome}")
+        logger.debug(f"Constants: {constants}")
+        logger.debug(f"Bits: {bits}")
+        logger.debug(f"Thresholds: {thresholds}")
+        logger.debug(f"New thresholds: {tree.tree_.threshold}")
+        logger.debug(f"Accuracy: {accuracy:.3e}")
+        logger.debug(f"Area: {area:.3e}")
+        logger.debug("\n")
 
     return accuracy_loss, area
 

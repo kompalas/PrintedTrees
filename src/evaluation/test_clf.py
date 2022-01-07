@@ -1,9 +1,11 @@
 import os
 import pickle
 import argparse
+import logging
 import shutil
 import graphviz
 import numpy as np
+from copy import deepcopy
 from glob import glob
 from sklearn import tree
 from src import ALL_DATASETS, project_dir
@@ -12,13 +14,35 @@ from src.datasets import get_data
 from src.nsga2.objectives import translate_chromosome, calculate_accuracy
 
 
+logger = logging.getLogger(__name__)
+
+
+def logger_cfg(logfile=None):
+    logging.getLogger("matplotlib").setLevel(logging.INFO)
+    logger.setLevel(logging.DEBUG)
+    stream_formatter = logging.Formatter('%(levelname)s %(message)s')
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(stream_formatter)
+    stream_handler.setLevel(logging.INFO)
+    logger.addHandler(stream_handler)
+
+    if logfile:
+        file_formatter = logging.Formatter(
+            '%(asctime)s %(levelname)s: %(message)s', datefmt='%d/%m/%Y %H:%M:%S'
+        )
+        file_handler = logging.FileHandler(args.logfile, mode='w')
+        file_handler.setFormatter(file_formatter)
+        file_handler.setLevel(logging.DEBUG)
+        logger.addHandler(file_handler)
+
+
 def print_dt_info(classifier):
     # basic information about the classifier
     n_nodes = classifier.tree_.node_count
     children_left = classifier.tree_.children_left
     children_right = classifier.tree_.children_right
     feature = classifier.tree_.feature
-    threshold = classifier.tree_.threshold
+    threshold = deepcopy(classifier.tree_.threshold)
 
     node_depth = np.zeros(shape=n_nodes, dtype=np.int64)
     is_leaves = np.zeros(shape=n_nodes, dtype=bool)
@@ -37,12 +61,12 @@ def print_dt_info(classifier):
         else:
             is_leaves[node_id] = True
 
-    print(f"The binary tree structure has {n_nodes} nodes and has the following tree structure:\n")
+    logger.debug(f"The binary tree structure has {n_nodes} nodes and has the following tree structure:")
     for i in range(n_nodes):
         if is_leaves[i]:
-            print("{space}node={node} is a leaf node.".format(space=node_depth[i] * "\t", node=i))
+            logger.debug("{space}node={node} is a leaf node.".format(space=node_depth[i] * "\t", node=i))
         else:
-            print(
+            logger.debug(
                 "{space}node={node} is a split node: "
                 "go to node {left} if X[:, {feature}] <= {threshold} else "
                 "to node {right}.".format(
@@ -80,19 +104,25 @@ if __name__ == "__main__":
                              "Only effective with the 'all' option for --load-mode. Default is 20")
     parser.add_argument("--results-dir", "-rd", help="Set the directory where results will be stored")
     parser.add_argument("--to-pdf", dest='to_pdf', action='store_true', help="Set to export tree structure to pdf")
+    parser.add_argument('--logfile', default=f'{project_dir}/logs/test_clf.log',
+                        help='Set the logging file for this script')
     args = parser.parse_args()
+    logger_cfg(args.logfile)
 
     # create results directory
-    args.results_dir = f"{project_dir}/results/tree" if args.results_dir is None else args.results_dir
+    resdir_not_set = args.results_dir is None
+    args.results_dir = f"{project_dir}/results/tree" if resdir_not_set else args.results_dir
     args.results_dir = args.results_dir[:-1] if args.results_dir[-1] == '/' else args.results_dir
     os.makedirs(args.results_dir, exist_ok=True)
 
+    logger.debug(f"Command line arguments")
     # remove results from previous experiments
-    # for resfile in glob(f"{args.results_dir}/*"):
-    #     if os.path.isfile(resfile):
-    #         os.remove(resfile)
-    #    elif os.path.isdir(resfile):
-    #        shutil.rmtree(resfile)
+    if resdir_not_set:
+        for resfile in glob(f"{args.results_dir}/*"):
+            if os.path.isfile(resfile):
+                os.remove(resfile)
+            elif os.path.isdir(resfile):
+                shutil.rmtree(resfile)
 
     # create a new classifier or load one from a GA experiment
     if not args.load_from:
@@ -100,7 +130,7 @@ if __name__ == "__main__":
         x_train, x_test, y_train, y_test = get_data(args.dataset, input_bits=args.input_bits)
         clf.fit(x_train, y_train)
         dataset = args.dataset
-        print(f"Created a new classifier with dataset: {dataset}")
+        logger.info(f"Created a new classifier with dataset: {dataset}")
 
         # save the decision tree object with pickle
         with open(f"{args.results_dir}/dtree.pkl", "wb") as f:
@@ -111,6 +141,8 @@ if __name__ == "__main__":
         with open(f"{args.results_dir}/accuracy.txt", "w") as f:
             f.write(str(acc))
 
+        print_dt_info(classifier=clf)
+
     else:
         args.load_from = args.load_from[:-1] if args.load_from[-1] == '/' else args.load_from
         resfile = get_results_file(generation=-1, results_dir=args.load_from)
@@ -118,32 +150,31 @@ if __name__ == "__main__":
         # load population file from experiment
         with open(f"{args.load_from}/{resfile}", "rb") as f:
             population = pickle.load(f)
-        print(f"Extracted fronts from: {args.load_from}/{resfile}")
+        logger.info(f"Extracted fronts from: {args.load_from}/{resfile}")
         fronts = extract_fronts(population)
 
         # load initialization data from experiment
         with open(f"{args.load_from}/clf.pkl", "rb") as f:
             data, info, clf = pickle.load(f)
-        og_thresholds = clf.tree_.threshold
+        original_thresholds = deepcopy(clf.tree_.threshold)
         dataset = info["dataset"]
+        logger.debug(f"Original thresholds: {original_thresholds}")
 
-        # figure out thresholds from chromosome
-        chromosomes = {
+        # define the individual(s) to use depending on the loading mode
+        individuals = {
             'init': None,
-            'min_area': [min(fronts[0], key=lambda ind: ind.objectives[1]).features],
-            'max_acc': [min(fronts[0], key=lambda ind: ind.objectives[0]).features],
-            'all': list(map(
-                lambda ind: ind.features,
-                sorted(fronts[0], key=lambda ind: ind.objectives[0]),
-            ))
+            'min_area': [min(fronts[0], key=lambda ind: ind.objectives[1])],
+            'max_acc': [min(fronts[0], key=lambda ind: ind.objectives[0])],
+            'all': sorted(fronts[0], key=lambda ind: ind.objectives[0])
         }.get(args.ga_mode)
 
-        if chromosomes is not None:
-            chromosomes = chromosomes[:args.keep] if len(chromosomes) > args.keep else chromosomes
-            for idx, chromosome in enumerate(chromosomes):
+        if individuals is not None:
+            accuracies = []
+            individuals = individuals[:args.keep] if len(individuals) > args.keep else individuals
+            for idx, individual in enumerate(individuals):
 
                 # reset thresholds
-                for i, og_threshold in enumerate(og_thresholds):
+                for i, og_threshold in enumerate(original_thresholds):
                     clf.tree_.threshold[i] = og_threshold
 
                 current_results_dir = f"{args.results_dir}/{idx}"
@@ -151,15 +182,15 @@ if __name__ == "__main__":
 
                 # translate the chromosome to thresholds
                 new_thresholds, constants, bits = translate_chromosome(
-                    chromosome=chromosome,
+                    chromosome=individual.features,
                     bitwidth=info['bitwidth'],
                     leeway=info['leeway'],
                     candidates=info['candidates']
                 )
                 # add new thresholds (constants) to decision tree
                 new_thresholds_i = iter(new_thresholds)
-                for i in range(len(clf.tree_.threshold)):
-                    if clf.tree_.threshold[i] > 0:
+                for i in range(len(original_thresholds)):
+                    if original_thresholds[i] > 0:
                         clf.tree_.threshold[i] = next(new_thresholds_i)
 
                 # save bits per feature for later use, whether the same or different
@@ -174,8 +205,23 @@ if __name__ == "__main__":
                 # get accuracy of approximate classifier
                 y_pred = clf.predict(data['x_test'])
                 acc = calculate_accuracy(data['y_test'], y_pred, 'accuracy')
+                accuracies.append(acc)
                 with open(f"{current_results_dir}/accuracy.txt", "w") as f:
                     f.write(str(acc))
+
+                logger.debug(f"Chromosome: {individual.features}")
+                logger.debug(f"Accuracy from GA: {1 - individual.objectives[0]}")
+                logger.debug(f"Accuracy measured: {acc}")
+                logger.debug(f"Area: {individual.objectives[1]}")
+                logger.debug(f"Original thresholds: {original_thresholds}")
+                logger.debug(f"New thresholds: {new_thresholds}")
+                logger.debug(f"Set thresholds: {clf.tree_.threshold}")
+                print_dt_info(classifier=clf)
+                assert acc == 1 - individual.objectives[0], f"Re-tested accuracy and the original value " \
+                    f"{1 - individual.objectives[0]} is different than the measured value {acc}"
+                logger.debug("\n")
+
+            logger.debug(f"Measured accuracies: {np.array(accuracies)}")
 
         else:
             # save the decision tree object with pickle
@@ -187,7 +233,7 @@ if __name__ == "__main__":
             with open(f"{args.results_dir}/accuracy.txt", "w") as f:
                 f.write(str(acc))
 
-    print_dt_info(classifier=clf)
+            print_dt_info(classifier=clf)
 
     # export graph in dot and pdf format
     if args.to_pdf:
@@ -197,5 +243,8 @@ if __name__ == "__main__":
         )
         graph = graphviz.Source(dot_data, format='pdf')
         graph.render(filename=f'{args.results_dir}/{dataset}_dtree_graph')
+        logger.debug(f"Exported the decision tree to pdf at {args.results_dir}/{dataset}_dtree_graph.pdf")
 
-    print(f"Results were saved to: {args.results_dir}")
+    logger.info(f"Results were saved to: {args.results_dir}")
+    logger.info(f"Logfile for this run: {args.logfile}")
+
