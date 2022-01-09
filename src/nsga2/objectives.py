@@ -112,7 +112,11 @@ def calc_fitness(chromosome, tree, x_test, y_test, area_lut, bitwidth, leeway, o
 
     y_pred = tree.predict(x_test)
     accuracy = calculate_accuracy(y_test, y_pred, accuracy_metric)
-    accuracy_loss = 1 - accuracy
+
+    if accuracy_metric == 'accuracy':
+        accuracy_loss = 1 - accuracy
+    else:
+        raise NotImplementedError("Only the 'accuracy' metric is currently implemented.")
 
     if verbose:
         logger.debug(f"Chromosome: {chromosome}")

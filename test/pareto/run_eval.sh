@@ -121,24 +121,30 @@ for netl_id in $(seq 0 $pareto_sols); do
 
     # maybe there are no timing paths in the approximate classifier
     if grep -q 'data arrival time' $delay_rpt_dc; then 
+
         delay="$(grep "data arrival time" $delay_rpt_dc | awk 'NR==1 {print $NF}')"
+        if [ ${delay%.*} -eq 0 ]; then
+            power="0"
 
-        # gatesim and power evaluation
-        rm -rf work_gate
-        make gate_sim
-        # check for an error in the simulation output file
-        if grep -iq "x" $testdir/sim/output.txt; then
-            echo "ERROR: Found 'x' in simulation"
-            exit 1
+        else
+
+             # gatesim and power evaluation
+            rm -rf work_gate
+            make gate_sim
+            # check for an error in the simulation output file
+            if grep -iq "x" $testdir/sim/output.txt; then
+                echo "ERROR: Found 'x' in simulation"
+                exit 1
+            fi
+
+            make power
+            power="$(awk '/Total Power/ {print $4}' $power_rpt)"
+
+            # save reports if they exist
+            mv $area_rpt $reportsdir/area_$netl_id.rpt
+            mv $delay_rpt_dc $reportsdir/delay_$netl_id.rpt
+            mv $power_rpt $reportsdir/power_$netl_id.rpt
         fi
-
-        make power
-        power="$(awk '/Total Power/ {print $4}' $power_rpt)"
-
-        # save reports if they exist
-        mv $area_rpt $reportsdir/area_$netl_id.rpt
-        mv $delay_rpt_dc $reportsdir/delay_$netl_id.rpt
-        mv $power_rpt $reportsdir/power_$netl_id.rpt
 
     else
         delay="0"

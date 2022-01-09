@@ -69,7 +69,7 @@ def logging_cfg(args):
         defaults={
             'main_log_filename': f'{project_dir}/logs/{args.dataset}_out.log',
             'all_log_filename': f'{args.results_dir}/out.log',
-            'console_level': 'DEBUG' if args.verbose else 'INFO'
+            'console_level': 'INFO'
         }
     )
 

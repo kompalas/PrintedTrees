@@ -1,0 +1,13 @@
+module top(X6, out);
+input [7:0] X6;
+output [1:0] out;
+assign out = 
+   (X6[7:6] <= 3)?
+     (X6[7:5] <= 3)?
+      41
+    :
+      98
+  :
+    78
+;
+endmodule

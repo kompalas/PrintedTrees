@@ -1,0 +1,13 @@
+module top(X21, out);
+input [7:0] X21;
+output [1:0] out;
+assign out = 
+   (X21 <= 64)?
+    1148
+  :
+     (X21 <= 192)?
+      210
+    :
+      130
+;
+endmodule
