@@ -102,7 +102,7 @@ def get_candidates_discrete(decision_tree, bitwidth=None, leeway=0):
     """Get the chromosome candidate variables for integer-valued genes"""
     # NOTE: This is necessary in order to not create a reference of the classifer threshold
     thresholds = deepcopy(decision_tree.tree_.threshold)
-    logger.debug(f"Original thresholds: {thresholds}")
+    logger.debug(f"Original thresholds {len(thresholds)}: {thresholds}")
 
     assert not any(threshold == 0 for threshold in thresholds), "At least one comparator is unnecessary. Check the" \
                                                                 "method for initializing the decision tree"
@@ -145,7 +145,7 @@ def get_candidates_discrete(decision_tree, bitwidth=None, leeway=0):
 def get_candidates_continuous(decision_tree, bitwidth=None, leeway=0):
     """Get the chromosome candidate variables for integer-valued genes"""
     thresholds = deepcopy(decision_tree.tree_.threshold)
-    logger.debug(f"Original thresholds: {thresholds}")
+    logger.debug(f"Original thresholds {len(thresholds)}: {thresholds}")
 
     if bitwidth is not None:
         thresholds = np.array([threshold for threshold in thresholds if threshold > 0])

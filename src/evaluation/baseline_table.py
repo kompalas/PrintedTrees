@@ -3,7 +3,18 @@ from src.evaluation.all_paretos import get_ga_data, get_dt_data
 from src.evaluation.tree2verilog import logging_cfg
 import argparse
 import yaml
-import logging
+import re
+import ast
+
+
+def get_comparators(experiment_name):
+    with open(f"{project_dir}/results/ga/{experiment_name}/out.log", "r") as f:
+        log = f.read()
+    thresholds = re.search("Original thresholds: (\[.*?\])", log, re.DOTALL)
+    thresholds = thresholds.group(1).replace('\n', '').replace('[', '[ ').replace(']', ' ]')
+    thresholds = re.split("\s+", thresholds)
+    thresholds = [float(t) for t in thresholds if re.match('[-]?\d+[.]?\d*', t)]
+    return thresholds
 
 
 if __name__ == "__main__":
@@ -16,20 +27,21 @@ if __name__ == "__main__":
     print(f"Command line arguments: {args.__dict__}")
 
     # configure logger to create the text file with the latex table
-    logfile = f'{project_dir}/results/figures/paper/table.txt'
+    logfile = f'{project_dir}/results/figures/paper/bl_table.txt'
     logger = logging_cfg('table', logfile)
     logger.debug("""
 \\begin{table}[t]
-\\caption{Area and power evaluation for an accuracy threshold of $1\\%$. Circuits highlighted in XX can be powered by XX}
+\\caption{Evaluation of exact bespoke Decision Tree circuits for each examined dataset.}
 \\centering
 {\\footnotesize
-% \\setlength{\\tabcolsep}{3pt}
+\\setlength{\\tabcolsep}{4pt}
 \\begin{tabular}{c|c|c|c|c|c}
-\t\\hline""")
+\t\\hline
+""")
 
-    initial_line = "\t\\textbf{Dataset} & \\textbf{Accuracy} & \\makecell{\\textbf{Area} \\\\ ($mm^2$)} & " \
-                   "\\makecell{\\textbf{Norm.} \\\\ \\textbf{Area}} &  \\makecell{\\textbf{Power} \\\\ ($mW$)} & " \
-                   "\\makecell{\\textbf{Norm.} \\\\ \\textbf{Power}} \\\\"
+    initial_line = "\t\\textbf{Dataset} & \\textbf{Accuracy} & \\textbf{\\#Comp.} & " \
+                   "\\makecell{\\textbf{Delay} \\\\ ($ms$)} & \\makecell{\\textbf{Area} \\\\ ($mm^2$)} & " \
+                   "\\makecell{\\textbf{Power} \\\\ ($mW$)} \\\\"
     logger.debug(f"{initial_line}\n\t\\hline")
 
     # load the pareto kept for each dataset
@@ -54,39 +66,21 @@ if __name__ == "__main__":
         baseline_df, data_df = get_dt_data(
             results_file=f'{project_dir}/test/pareto/results/{exp_name}/results.txt'
         )
-        print(f"Evaluating {dataset} dataset.")
-        print(f"Baseline accuracy {baseline_df['Accuracy']}")
-        # keep solutions only with acceptable accuracy threshold
-        data_df = data_df.loc[data_df['Accuracy'] >= baseline_df['Accuracy'] - args.threshold]
-        # find the solution with minimum power out of the ones with acceptable accuracy
-        index_of_min_power = data_df.loc[data_df['Power'] == min(data_df['Power'])].index[0]
-        sol_with_min_power = data_df.iloc[index_of_min_power - 1]
-        print(f"Solution index with minimum power: {sol_with_min_power['Sol']}")
-
-        accuracy = sol_with_min_power['Accuracy']
-        accuracy_str = f"{accuracy:.2f}"
-        area = sol_with_min_power['Area']
-        area_str = f"{area/1e6:.2f}"
-        area_norm = area/baseline_df['Area']
-        area_norm_str = f"{area_norm:.3f}"
-        power = sol_with_min_power['Power']
-        power_str = f"{power*1e3:.2f}"
-        power_norm = power/baseline_df['Power']
-        power_norm_str = f"{power_norm:.3f}"
-
-        colors = ['Azure1', 'LightBlue1', 'PaleGreen1', 'DarkSeaGreen1', 'BurlyWood1']
-        highlight = None if power > 0.03 else 'Azure1' if power > 0.003 else 'DarkSeaGreen1' if power > 0.0003 else 'Burlywood1'
-        line = f"\t\\rowcolor{{{highlight}!50}} " if highlight is not None else "\t"
+        accuracy_str = f"{baseline_df['Accuracy']:.3f}"
+        delay_str = f"{baseline_df['Delay']/1e6:.1f}"
+        area_str = f"{baseline_df['Area']/1e6:.2f}"
+        power_str = f"{baseline_df['Power']*1e3:.2f}"
+        comp = get_comparators(exp_name)
+        comp = [threshold for threshold in comp if threshold > 0]
 
         dataset = dataset if dataset.lower() != 'mammographic' else 'Mammogr.'
-        line += f"\\textbf{{{dataset}}} & {accuracy_str} & {area_str} & " \
-               f"{area_norm_str} & {power_str} & {power_norm_str} \\\\\n\t\\hline"
+        line = f"\t\\textbf{{{dataset}}} & {accuracy_str} & {len(comp)} & {delay_str} & {area_str} & {power_str} \\\\\n\t\\hline"
         logger.debug(line)
 
     logger.debug(r"""
 \end{tabular}
 }
-\label{tab:area_power}
+\label{tab:baseline}
 \end{table}
 """)
 

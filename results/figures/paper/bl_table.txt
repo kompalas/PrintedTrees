@@ -1,0 +1,37 @@
+
+\begin{table}[t]
+\caption{Evaluation of exact bespoke Decision Tree circuits for each examined dataset.}
+\centering
+{\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{c|c|c|c|c|c}
+	\hline
+
+	\textbf{Dataset} & \textbf{Accuracy} & \textbf{\#Comp.} & \makecell{\textbf{Delay} \\ ($ms$)} & \makecell{\textbf{Area} \\ ($mm^2$)} & \makecell{\textbf{Power} \\ ($mW$)} \\
+	\hline
+	\textbf{Arrhythmia} & 0.564 & 54 & 27.0 & 162.50 & 7.55 \\
+	\hline
+	\textbf{Balance} & 0.745 & 102 & 28.0 & 68.04 & 3.11 \\
+	\hline
+	\textbf{Cardio} & 0.928 & 79 & 30.4 & 178.63 & 8.12 \\
+	\hline
+	\textbf{HAR} & 0.835 & 186 & 36.7 & 570.38 & 27.00 \\
+	\hline
+	\textbf{Mammogr.} & 0.759 & 150 & 34.2 & 98.75 & 4.47 \\
+	\hline
+	\textbf{PenDigits} & 0.968 & 243 & 36.9 & 574.46 & 25.00 \\
+	\hline
+	\textbf{Redwine} & 0.600 & 259 & 38.7 & 513.84 & 22.30 \\
+	\hline
+	\textbf{Seeds} & 0.889 & 10 & 20.3 & 30.13 & 1.43 \\
+	\hline
+	\textbf{Vertebral} & 0.850 & 27 & 20.9 & 57.70 & 2.68 \\
+	\hline
+	\textbf{WhiteWine} & 0.617 & 280 & 49.9 & 543.12 & 23.20 \\
+	\hline
+
+\end{tabular}
+}
+\label{tab:baseline}
+\end{table}
+
