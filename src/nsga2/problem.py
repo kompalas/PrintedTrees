@@ -1,5 +1,6 @@
 from functools import partial
 from src.nsga2.individual import Individual
+from src import MAX_CROWDING_DISTANCE
 import numpy as np
 import pandas as pd
 import random
@@ -31,6 +32,8 @@ class Problem:
         self.resdir = resdir
 
         self.objective_functions = objective_functions
+        self.max_objectives = [None] * len(objective_functions)
+        self.min_objectives = [None] * len(objective_functions)
 
         # configure function to generate new random individuals
         self.__generation_factory = {
@@ -67,3 +70,12 @@ class Problem:
         ]
         individual.set_features(features)
         return individual
+
+    def calculate_objectives(self, individual, thread_index=None):
+        """Wrapper function for calculating objectives"""
+        individual.calculate_objectives(thread_index=thread_index)
+        for m in range(self.num_of_objectives):
+            if self.min_objectives[m] is None or individual.objectives[m] < self.min_objectives[m]:
+                self.min_objectives[m] = individual.objectives[m]
+            if self.max_objectives[m] is None or individual.objectives[m] > self.max_objectives[m]:
+                self.max_objectives[m] = individual.objectives[m]

@@ -64,14 +64,34 @@ def translate_chromosome_continuous(chromosome, bitwidth, leeway, candidates, ve
      the comparison constants (for area calculation) and the bitwidth used (per gene or uniformly)"""
 
     if bitwidth is not None:
-        constants, thresholds, bits = [], [], []
-        pass
+        # genes are real values between (0, 1)
+        constants = [
+            int(gene * 2*leeway + candidate - leeway)
+            for gene, candidate in zip(chromosome, candidates)
+        ]
+        thresholds = [constant / (2**bitwidth) for constant in constants]
+        bits = []
 
     else:
         constants, thresholds, bits = [], [], []
-        pass
+        for i, (candidate, gene) in enumerate(zip(candidates, chromosome)):
+            if candidate == -1:
+                bit = int(gene * (8 - 2) + 2)
+                bits.append(bit)
+            else:
+                margin = int(gene * 2*leeway - leeway)
+                constant = int(round(candidate * (2**bit))) + margin  # to an integer close to original threshold
+                constant = 0 if constant < 0 else constant  # comparing with a negative constant is mute
+                constants.append(constant)
+                threshold = constant * 1/(2**bit)  # back to floating point for new threshold
+                threshold = 1 if threshold > 1 else threshold  # no point comparing with a number
+                                                               # larger than 1, all data fall in [0, 1]
+                thresholds.append(threshold)
 
-    raise NotImplementedError
+                if verbose:
+                    logger.debug(f"\tcandidate {candidate}, gene {gene}")
+                    logger.debug(f"\tmargin {margin}, bit {bit}, constant {constant}, threshold {threshold}")
+
     return thresholds, constants, bits
 
 

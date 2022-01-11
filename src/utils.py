@@ -27,6 +27,7 @@ def env_cfg(args):
 
 def args_cfg(args):
     """Configure command line arguments and check for errors"""
+    assert args.dataset is not None, "Specify a valid dataset."
     assert args.generations >= 1, \
         f"Invalid number of generations {args.generations}. Set a positive number of generations."
     assert args.population_size >= 1, \
@@ -143,12 +144,26 @@ def get_candidates_discrete(decision_tree, bitwidth=None, leeway=0):
 
 def get_candidates_continuous(decision_tree, bitwidth=None, leeway=0):
     """Get the chromosome candidate variables for integer-valued genes"""
-    candidates = []
-    variables_range = []
+    thresholds = deepcopy(decision_tree.tree_.threshold)
+    logger.debug(f"Original thresholds: {thresholds}")
 
+    if bitwidth is not None:
+        thresholds = np.array([threshold for threshold in thresholds if threshold > 0])
+        candidates = np.around(thresholds * 2**bitwidth).astype(int)
+        variables_range = [(0, 1) for _ in range(len(candidates))]    
 
-    raise NotImplementedError
+    else:
+        thresholds = np.array([threshold for threshold in thresholds if threshold > 0])
+        # TODO: find a more sophisticated way to represent variable input bits in candidates
+        bits = [-1] * len(thresholds)
 
+        # candidates are constructed as one gene for bitwidth (-1), followed by a gene of the threshold (constant)
+        candidates = [thresh_or_bit for thresh_and_bits in zip(bits, thresholds) for thresh_or_bit in thresh_and_bits]
+        variables_range = [(0, 1) for _ in range(len(candidates))]    
+
+    logger.debug(f"Kept thresholds {len(thresholds)}: {thresholds}")
+    logger.debug(f"Candidates {len(candidates)}: {candidates}")
+    logger.debug(f"Variables range {len(variables_range)}: {variables_range}")
     num_of_variables = len(variables_range)
     return candidates, num_of_variables, variables_range
 

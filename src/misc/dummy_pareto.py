@@ -26,4 +26,4 @@ ax.tick_params(
 ax.set_xlabel("Area", fontsize=40)
 ax.set_ylabel("Accuracy", fontsize=40)
 
-plt.savefig(f'{project_dir}/figures/dummy_pareto.png')
+plt.savefig(f'{project_dir}/figures/paper/dummy_pareto.png')

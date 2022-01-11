@@ -1,4 +1,5 @@
 from sklearn import tree
+from sklearn import metrics
 from functools import partial
 from copy import deepcopy
 from src import ALL_DATASETS, ALL_ACCURACY_METRICS, project_dir
@@ -21,6 +22,7 @@ def main():
     parser = argparse.ArgumentParser("Genetic algorithm for Approximate Decision Trees")
     parser.add_argument("--dataset", "-d", choices=ALL_DATASETS + [dataset.lower() for dataset in ALL_DATASETS],
                         help=f"Choose a dataset. Possible choices are {' | '.join(ALL_DATASETS)}")
+    parser.add_argument("--max-depth", "-md", type=int, help="Select the 'max_depth' parameter of the decision tree")
     parser.add_argument("--input-bits", "-b", dest="input_bits", type=int,
                         help="Specify the input bitwidth. If not specified, the input bits will be part of the "
                              "exploration, as an additional variable in the chromosome")
@@ -62,7 +64,7 @@ def main():
     env_cfg(args)
     logger.debug(f"Command line arguments: {args.__dict__}")
 
-    classifier = tree.DecisionTreeClassifier()
+    classifier = tree.DecisionTreeClassifier(criterion='entropy', max_depth=args.max_depth)
     x_train, x_test, y_train, y_test = get_data(args.dataset, input_bits=args.input_bits)
     logger.debug(f"Training data: x {x_train.shape}, y {y_train.shape}")
     logger.debug(f"{pd.DataFrame(x_train).describe()}")
@@ -70,9 +72,10 @@ def main():
     logger.debug(f"Test data: x {x_test.shape}, y {y_test.shape}")
     logger.debug(f"{pd.DataFrame(x_test).describe()}")
     logger.debug(f"{pd.DataFrame(y_test).describe()}")
+
     classifier.fit(x_train, y_train)
     y_pred = classifier.predict(x_test)
-    logger.debug(f"Initial test accuracy: {len(y_pred[y_pred == y_test])/len(y_pred):.3e}")
+    logger.info(f"Initial test accuracy: {len(y_pred[y_pred == y_test])/len(y_pred):.3e}")
 
     candidates, num_of_variables, variables_range = get_candidates(
         classifier, bitwidth=args.input_bits, leeway=args.margin, gene_type=args.gene_type
@@ -82,7 +85,7 @@ def main():
     with open(f"{args.results_dir}/clf.pkl", "wb") as f:
         data = {'x_train': x_train, 'y_train': y_train, 'x_test': x_test, 'y_test': y_test}
         experiment_info = {
-            'candidates': candidates, 'variables_range': variables_range,
+            'candidates': candidates, 'variables_range': variables_range, 'gene_type': args.gene_type,
             'dataset': args.dataset, 'bitwidth': args.input_bits, 'area_lut': comp_area_lut, 'leeway': args.margin
         }
         pickle.dump((data, experiment_info, classifier), f)

@@ -29,7 +29,7 @@ def get_data(dataset, input_bits=None, test_size=0.3):
     }
     get_dataset_f = dataset_factory.get(dataset.lower(), None)
     if get_dataset_f is None:
-        raise NotImplementedError(f"Dataset {dataset} is not implementd.")
+        raise NotImplementedError(f"Dataset {dataset} is not implemented.")
 
     dataX, dataY = get_dataset_f()
     # scale in the interval [0, 1]
@@ -47,21 +47,21 @@ def get_data(dataset, input_bits=None, test_size=0.3):
 def get_arrhythmia():
     df = pd.read_csv(f"{project_dir}/datasets/data/arrhythmia/arrhythmia.csv", sep=';')
     dataY = df['Y']
-    dataX = df.loc[:'Y']
+    dataX = df.iloc[:, :-1]
     return dataX, dataY
 
 
 def get_balance():
     df = pd.read_csv(f"{project_dir}/datasets/data/balance_scale/balance_scale.csv", sep=';')
     dataY = df['Y']
-    dataX = df.loc[:'Y']
+    dataX = df.iloc[:, :-1]
     return dataX, dataY
 
 
 def get_breast_cancer():
     df = pd.read_csv(f"{project_dir}/datasets/data/breast_cancer/breast-cancer-wisconsin.csv", sep=';')
     dataY = df['Y']
-    dataX = df.loc[:'Y']
+    dataX = df.iloc[:, :-1]
     return dataX, dataY
 
 
@@ -74,7 +74,7 @@ def get_cardio():
 
     df = pd.read_csv(f"{project_dir}/datasets/data/cardio/cardio.csv", sep=';')
     dataY = df['Y']
-    dataX = df.loc[:'Y']
+    dataX = df.iloc[:, :-1]
     return dataX, dataY
 
 
@@ -85,49 +85,49 @@ def get_gasid():
 def get_har():
     df = pd.read_csv(f"{project_dir}/datasets/data/har/har.csv", sep=';')
     dataY = df['Y']
-    dataX = df.loc[:'Y']
+    dataX = df.iloc[:, :-1]
     return dataX, dataY
 
 
 def get_mammogr():
     df = pd.read_csv(f"{project_dir}/datasets/data/mammographic/mammographic_masses.csv", sep=';')
     dataY = df['Y']
-    dataX = df.loc[:'Y']
+    dataX = df.iloc[:, :-1]
     return dataX, dataY
 
 
 def get_pendigits():
     df = pd.read_csv(f"{project_dir}/datasets/data/pendigits/pendigits.csv", sep=';')
     dataY = df['Y']
-    dataX = df.loc[:'Y']
+    dataX = df.iloc[:, :-1]
     return dataX, dataY
 
 
 def get_redwine():
     df = pd.read_csv(f"{project_dir}/datasets/data/wine/redwine.csv", sep=';')
     dataY = df['Y']
-    dataX = df.loc[:'Y']
+    dataX = df.iloc[:, :-1]
     return dataX, dataY
 
 
 def get_seeds():
     df = pd.read_csv(f"{project_dir}/datasets/data/seeds/seeds.csv", sep=';')
     dataY = df['Y']
-    dataX = df.loc[:'Y']
+    dataX = df.iloc[:, :-1]
     return dataX, dataY
 
 
 def get_vertebral():
     df = pd.read_csv(f"{project_dir}/datasets/data/vertebral/column_3C.csv", sep=';')
     dataY = df['Y']
-    dataX = df.loc[:'Y']
+    dataX = df.iloc[:, :-1]
     return dataX, dataY
 
 
 def get_whitewine():
     df = pd.read_csv(f"{project_dir}/datasets/data/wine/redwine.csv", sep=';')
     dataY = df['Y']
-    dataX = df.loc[:'Y']
+    dataX = df.iloc[:, :-1]
     return dataX, dataY
 
 

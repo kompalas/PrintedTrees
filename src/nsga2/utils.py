@@ -1,5 +1,4 @@
 import concurrent.futures as cf
-from src import MAX_CROWDING_DISTANCE
 from src.nsga2.population import Population
 from functools import partial
 from time import time
@@ -93,7 +92,7 @@ class NSGA2Utils:
         for ind_id in range(self.num_of_individuals):
             individual = self.problem.generate_individual()
             # calculate the objectives of each individual
-            individual.calculate_objectives(thread_index=0)
+            self.problem.calculate_objectives(individual, thread_index=0)
             population.append(individual)
         return population
 
@@ -112,7 +111,7 @@ class NSGA2Utils:
         for ind_id in range(start, end):
             individual = self.problem.generate_individual()
             # calculate the objectives of each individual
-            individual.calculate_objectives(thread_index=thread_id)
+            self.problem.calculate_objectives(individual, thread_index=thread_id)
             individuals.append(individual)
         return individuals
 
@@ -143,7 +142,7 @@ class NSGA2Utils:
             # stochastically mutate the children's chromosomes
             self.__mutation_f(child)
             # calculate their objective function
-            child.calculate_objectives(thread_index=thread_id)
+            self.problem.calculate_objectives(child, thread_index=thread_id)
         return children
 
     def create_children_parallel(self, population):
@@ -191,12 +190,6 @@ class NSGA2Utils:
             i = i+1
             population.fronts.append(temp)
 
-        # NOTE: this is added to decrease the size of stored objects
-        # lets assume that <individual>.dominated_solutions is not necessary beyond this point
-        for current_front in population.fronts:
-            for individual in current_front:
-                individual.dominated_solutions = []
-
     def calculate_crowding_distance(self, front):
         """Calculate crowding distance of a particular front"""
         if len(front) > 0:
@@ -206,14 +199,20 @@ class NSGA2Utils:
 
             for m in range(len(front[0].objectives)):
                 front.sort(key=lambda individual: individual.objectives[m])
-                front[0].crowding_distance = MAX_CROWDING_DISTANCE
-                front[solutions_num-1].crowding_distance = MAX_CROWDING_DISTANCE
-                m_values = [individual.objectives[m] for individual in front]
-                scale = max(m_values) - min(m_values)
-                if scale == 0:
-                    scale = 1
-                for i in range(1, solutions_num-1):
-                    front[i].crowding_distance += (front[i+1].objectives[m] - front[i-1].objectives[m])/scale
+                front[0].crowding_distance = self.problem.max_objectives[m]
+                front[solutions_num-1].crowding_distance = self.problem.max_objectives[m]
+                for index, value in enumerate(front[1:solutions_num-1]):
+                    front[index].crowding_distance = (front[index+1].crowding_distance - front[index-1].crowding_distance) /\
+                                                     (self.problem.max_objectives[m] - self.problem.min_objectives[m])
+
+                # front[0].crowding_distance = MAX_CROWDING_DISTANCE
+                # front[solutions_num-1].crowding_distance = MAX_CROWDING_DISTANCE
+                # m_values = [individual.objectives[m] for individual in front]
+                # scale = max(m_values) - min(m_values)
+                # if scale == 0:
+                #     scale = 1
+                # for i in range(1, solutions_num-1):
+                #     front[i].crowding_distance += (front[i+1].objectives[m] - front[i-1].objectives[m])/scale
 
     def crowding_operator(self, individual, other_individual):
         """Compare two individuals based on their rank and crowding distance"""

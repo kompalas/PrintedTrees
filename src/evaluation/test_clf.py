@@ -8,6 +8,7 @@ import numpy as np
 from copy import deepcopy
 from glob import glob
 from sklearn import tree
+from decimal import Decimal, getcontext
 from src import ALL_DATASETS, project_dir
 from src.evaluation.pareto import get_results_file, extract_fronts
 from src.datasets import get_data
@@ -185,7 +186,8 @@ if __name__ == "__main__":
                     chromosome=individual.features,
                     bitwidth=info['bitwidth'],
                     leeway=info['leeway'],
-                    candidates=info['candidates']
+                    candidates=info['candidates'],
+                    gene_type=info['gene_type']
                 )
                 # add new thresholds (constants) to decision tree
                 new_thresholds_i = iter(new_thresholds)
@@ -217,8 +219,11 @@ if __name__ == "__main__":
                 logger.debug(f"New thresholds: {new_thresholds}")
                 logger.debug(f"Set thresholds: {clf.tree_.threshold}")
                 print_dt_info(classifier=clf)
-                assert acc == 1 - individual.objectives[0], f"Re-tested accuracy and the original value " \
-                    f"{1 - individual.objectives[0]} is different than the measured value {acc}"
+
+                # TODO: this fails because of precision errors, not mismatch errors. Reduce the precision to fix
+                getcontext().prec = 5
+                assert Decimal(acc) == Decimal(1 - individual.objectives[0]), f"Re-tested accuracy and the original" \
+                        f"value {1 - individual.objectives[0]} is different than the measured value {acc}"
                 logger.debug("\n")
 
             logger.debug(f"Measured accuracies: {np.array(accuracies)}")

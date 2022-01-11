@@ -58,7 +58,7 @@ power_rpt="$testdir/reports/top_$((synclk*1000000))ns.power.ptpx.rpt"
 # first create the pickle with the decision tree of the accurate classifier
 python3 $maindir/src/evaluation/test_clf.py --load-from $ga_results_dir --load-mode init --results-dir $resdir/acc
 # then create the verilog and tb for the accurate classifier
-python3 $maindir/src/tree2verilog.py --results-dir $resdir/acc --verilog-file $resdir/acc/dtree.v --tb-inputs-file $testdir/sim/inputs.txt --new-inputs
+python3 $maindir/src/evaluation/tree2verilog.py --results-dir $resdir/acc --verilog-file $resdir/acc/dtree.v --tb-inputs-file $testdir/sim/inputs.txt --new-inputs
 accuracy="$(awk '{printf("%.3e", $1)}' $resdir/acc/accuracy.txt)"
 
 # keep a copy of the inputs used
@@ -108,7 +108,7 @@ pareto_sols="$(
 # iterate over all solutions in pareto front
 for netl_id in $(seq 0 $pareto_sols); do
 
-    python3 $maindir/src/tree2verilog.py --results-dir $resdir/$netl_id --verilog-file $resdir/$netl_id/dtree.v --tb-inputs-file $testdir/sim/inputs.txt
+    python3 $maindir/src/evaluation/tree2verilog.py --results-dir $resdir/$netl_id --verilog-file $resdir/$netl_id/dtree.v --tb-inputs-file $testdir/sim/inputs.txt
     accuracy="$(awk '{printf("%.3e", $1)}' $resdir/$netl_id/accuracy.txt)"
 
     cp $resdir/$netl_id/dtree.v $testdir/hdl/top.v

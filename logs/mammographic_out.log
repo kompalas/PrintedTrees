@@ -1,100 +1,709 @@
-07/01/2022 20:50:00 [src.nsga2.utils] (MainProcess) INFO: Serial execution on a single thread.
-07/01/2022 20:50:00 [src.nsga2.evolution] (MainProcess) INFO: Results for this run are saved in /home/balkon00/PrintedTrees/results/ga/mammographic_07_01_2022__20_49
-07/01/2022 20:50:00 [src.nsga2.evolution] (MainProcess) INFO: ----------------------------------
-07/01/2022 20:50:00 [src.nsga2.evolution] (MainProcess) INFO: Started at 07/01/2022 20:50:00
-07/01/2022 20:50:00 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 0 ----------
-07/01/2022 20:50:01 [src.nsga2.evolution] (MainProcess) INFO: Created initial population in time: 0.194
-07/01/2022 20:50:01 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.230
-07/01/2022 20:50:03 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 253 solutions
-07/01/2022 20:50:03 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:03 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:03 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 1.847s
-07/01/2022 20:50:03 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 0 -------
-07/01/2022 20:50:03 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 1 ----------
-07/01/2022 20:50:03 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.242
-07/01/2022 20:50:05 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 476 solutions
-07/01/2022 20:50:05 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:05 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:05 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 1.968s
-07/01/2022 20:50:05 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 1 -------
-07/01/2022 20:50:05 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 2 ----------
-07/01/2022 20:50:05 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.250
-07/01/2022 20:50:07 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 500 solutions
-07/01/2022 20:50:07 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:07 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:07 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 2.280s
-07/01/2022 20:50:07 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 2 -------
-07/01/2022 20:50:07 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 3 ----------
-07/01/2022 20:50:07 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.263
-07/01/2022 20:50:09 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 500 solutions
-07/01/2022 20:50:09 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:09 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:09 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 2.187s
-07/01/2022 20:50:09 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 3 -------
-07/01/2022 20:50:09 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 4 ----------
-07/01/2022 20:50:10 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.259
-07/01/2022 20:50:11 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 500 solutions
-07/01/2022 20:50:11 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:11 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:11 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 2.159s
-07/01/2022 20:50:11 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 4 -------
-07/01/2022 20:50:11 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 5 ----------
-07/01/2022 20:50:12 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.300
-07/01/2022 20:50:14 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 500 solutions
-07/01/2022 20:50:14 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:14 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:14 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 2.633s
-07/01/2022 20:50:14 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 5 -------
-07/01/2022 20:50:14 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 6 ----------
-07/01/2022 20:50:14 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.254
-07/01/2022 20:50:16 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 500 solutions
-07/01/2022 20:50:16 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:16 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:16 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 2.051s
-07/01/2022 20:50:16 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 6 -------
-07/01/2022 20:50:16 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 7 ----------
-07/01/2022 20:50:16 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.272
-07/01/2022 20:50:18 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 500 solutions
-07/01/2022 20:50:18 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:18 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:18 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 2.174s
-07/01/2022 20:50:18 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 7 -------
-07/01/2022 20:50:18 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 8 ----------
-07/01/2022 20:50:19 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.240
-07/01/2022 20:50:21 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 500 solutions
-07/01/2022 20:50:21 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:21 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:21 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 2.481s
-07/01/2022 20:50:21 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 8 -------
-07/01/2022 20:50:21 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 9 ----------
-07/01/2022 20:50:21 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.256
-07/01/2022 20:50:23 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 500 solutions
-07/01/2022 20:50:23 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:23 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:23 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 1.938s
-07/01/2022 20:50:23 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 9 -------
-07/01/2022 20:50:23 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 10 ----------
-07/01/2022 20:50:23 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.253
-07/01/2022 20:50:25 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 500 solutions
-07/01/2022 20:50:25 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:25 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:25 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 1.961s
-07/01/2022 20:50:25 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 10 -------
-07/01/2022 20:50:25 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 11 ----------
-07/01/2022 20:50:25 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.272
-07/01/2022 20:50:27 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 500 solutions
-07/01/2022 20:50:27 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:27 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:27 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 2.192s
-07/01/2022 20:50:27 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 11 -------
-07/01/2022 20:50:27 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 12 ----------
-07/01/2022 20:50:27 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.238
-07/01/2022 20:50:29 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 500 solutions
-07/01/2022 20:50:29 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:29 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 0.000e+00 -> 0.000e+00
-07/01/2022 20:50:29 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 1.933s
-07/01/2022 20:50:29 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 12 -------
-07/01/2022 20:50:29 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 13 ----------
-07/01/2022 20:50:29 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 0.235
-07/01/2022 20:50:30 [__main__] (MainProcess) INFO: 
-07/01/2022 20:50:30 [__main__] (MainProcess) INFO: --- Keyboard Interrupt --- (Wait for termination)
+10/01/2022 21:25:38 [__main__] (MainProcess) INFO: Initial test accuracy: 7.590e-01
+10/01/2022 21:25:40 [src.nsga2.utils] (MainProcess) INFO: Serial execution on a single thread.
+10/01/2022 21:25:40 [src.nsga2.evolution] (MainProcess) INFO: Results for this run are saved in /home/balkon00/PrintedTrees/results/ga/mammographic_10_01_2022__21_25
+10/01/2022 21:25:40 [src.nsga2.evolution] (MainProcess) INFO: ----------------------------------
+10/01/2022 21:25:40 [src.nsga2.evolution] (MainProcess) INFO: Started at 10/01/2022 21:25:40
+10/01/2022 21:25:40 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 0 ----------
+10/01/2022 21:25:41 [src.nsga2.evolution] (MainProcess) INFO: Created initial population in time: 1.103
+10/01/2022 21:25:43 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.407
+10/01/2022 21:25:44 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 9 solutions
+10/01/2022 21:25:44 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.807e-01 -> 2.369e-01
+10/01/2022 21:25:44 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 1.046e+08 -> 2.142e+08
+10/01/2022 21:25:44 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.020s
+10/01/2022 21:25:44 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 0 -------
+10/01/2022 21:25:44 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 1 ----------
+10/01/2022 21:25:46 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.505
+10/01/2022 21:25:48 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 6 solutions
+10/01/2022 21:25:48 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.807e-01 -> 2.088e-01
+10/01/2022 21:25:48 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 8.568e+07 -> 2.142e+08
+10/01/2022 21:25:48 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.257s
+10/01/2022 21:25:48 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 1 -------
+10/01/2022 21:25:48 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 2 ----------
+10/01/2022 21:25:49 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.454
+10/01/2022 21:25:51 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 10 solutions
+10/01/2022 21:25:51 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.647e-01 -> 2.209e-01
+10/01/2022 21:25:51 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 8.283e+07 -> 1.829e+08
+10/01/2022 21:25:51 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.126s
+10/01/2022 21:25:51 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 2 -------
+10/01/2022 21:25:51 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 3 ----------
+10/01/2022 21:25:52 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.384
+10/01/2022 21:25:54 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:25:54 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.647e-01 -> 3.655e-01
+10/01/2022 21:25:54 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.890e+07 -> 1.829e+08
+10/01/2022 21:25:54 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.039s
+10/01/2022 21:25:54 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 3 -------
+10/01/2022 21:25:54 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 4 ----------
+10/01/2022 21:25:55 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.375
+10/01/2022 21:25:57 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 10 solutions
+10/01/2022 21:25:57 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.566e-01 -> 2.209e-01
+10/01/2022 21:25:57 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.807e+07 -> 2.229e+08
+10/01/2022 21:25:57 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.092s
+10/01/2022 21:25:57 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 4 -------
+10/01/2022 21:25:57 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 5 ----------
+10/01/2022 21:25:58 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.441
+10/01/2022 21:26:00 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 10 solutions
+10/01/2022 21:26:00 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.566e-01 -> 2.209e-01
+10/01/2022 21:26:00 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.807e+07 -> 2.229e+08
+10/01/2022 21:26:00 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.263s
+10/01/2022 21:26:00 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 5 -------
+10/01/2022 21:26:00 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 6 ----------
+10/01/2022 21:26:02 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.380
+10/01/2022 21:26:03 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 10 solutions
+10/01/2022 21:26:03 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.566e-01 -> 2.249e-01
+10/01/2022 21:26:03 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.807e+07 -> 2.229e+08
+10/01/2022 21:26:03 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.014s
+10/01/2022 21:26:03 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 6 -------
+10/01/2022 21:26:03 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 7 ----------
+10/01/2022 21:26:05 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.490
+10/01/2022 21:26:06 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 9 solutions
+10/01/2022 21:26:06 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.486e-01 -> 4.458e-01
+10/01/2022 21:26:06 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.575e+07 -> 1.634e+08
+10/01/2022 21:26:06 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.180s
+10/01/2022 21:26:06 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 7 -------
+10/01/2022 21:26:06 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 8 ----------
+10/01/2022 21:26:08 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.468
+10/01/2022 21:26:10 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 8 solutions
+10/01/2022 21:26:10 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.486e-01 -> 4.458e-01
+10/01/2022 21:26:10 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.575e+07 -> 1.634e+08
+10/01/2022 21:26:10 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.255s
+10/01/2022 21:26:10 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 8 -------
+10/01/2022 21:26:10 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 9 ----------
+10/01/2022 21:26:11 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.484
+10/01/2022 21:26:13 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 7 solutions
+10/01/2022 21:26:13 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.486e-01 -> 4.458e-01
+10/01/2022 21:26:13 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.575e+07 -> 1.634e+08
+10/01/2022 21:26:13 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.227s
+10/01/2022 21:26:13 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 9 -------
+10/01/2022 21:26:13 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 10 ----------
+10/01/2022 21:26:14 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.384
+10/01/2022 21:26:16 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 9 solutions
+10/01/2022 21:26:16 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:16 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.730e+08
+10/01/2022 21:26:16 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.135s
+10/01/2022 21:26:16 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 10 -------
+10/01/2022 21:26:16 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 11 ----------
+10/01/2022 21:26:17 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.443
+10/01/2022 21:26:19 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 10 solutions
+10/01/2022 21:26:19 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:19 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.730e+08
+10/01/2022 21:26:19 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.239s
+10/01/2022 21:26:19 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 11 -------
+10/01/2022 21:26:19 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 12 ----------
+10/01/2022 21:26:21 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.380
+10/01/2022 21:26:22 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 10 solutions
+10/01/2022 21:26:22 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:22 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.730e+08
+10/01/2022 21:26:22 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.108s
+10/01/2022 21:26:22 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 12 -------
+10/01/2022 21:26:22 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 13 ----------
+10/01/2022 21:26:24 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.448
+10/01/2022 21:26:26 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:26:26 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:26 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.730e+08
+10/01/2022 21:26:26 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.198s
+10/01/2022 21:26:26 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 13 -------
+10/01/2022 21:26:26 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 14 ----------
+10/01/2022 21:26:27 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.412
+10/01/2022 21:26:29 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:26:29 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:29 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.730e+08
+10/01/2022 21:26:29 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.147s
+10/01/2022 21:26:29 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 14 -------
+10/01/2022 21:26:29 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 15 ----------
+10/01/2022 21:26:30 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.391
+10/01/2022 21:26:32 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:26:32 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:32 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.730e+08
+10/01/2022 21:26:32 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.042s
+10/01/2022 21:26:32 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 15 -------
+10/01/2022 21:26:32 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 16 ----------
+10/01/2022 21:26:33 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.529
+10/01/2022 21:26:35 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:26:35 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:35 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.730e+08
+10/01/2022 21:26:35 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.325s
+10/01/2022 21:26:35 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 16 -------
+10/01/2022 21:26:35 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 17 ----------
+10/01/2022 21:26:37 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.433
+10/01/2022 21:26:38 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:26:38 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:38 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:26:38 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.279s
+10/01/2022 21:26:38 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 17 -------
+10/01/2022 21:26:38 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 18 ----------
+10/01/2022 21:26:40 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.498
+10/01/2022 21:26:42 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:26:42 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:42 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:26:42 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.198s
+10/01/2022 21:26:42 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 18 -------
+10/01/2022 21:26:42 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 19 ----------
+10/01/2022 21:26:43 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.387
+10/01/2022 21:26:45 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:26:45 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:45 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:26:45 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.100s
+10/01/2022 21:26:45 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 19 -------
+10/01/2022 21:26:45 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 20 ----------
+10/01/2022 21:26:46 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.391
+10/01/2022 21:26:48 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:26:48 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:48 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:26:48 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.107s
+10/01/2022 21:26:48 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 20 -------
+10/01/2022 21:26:48 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 21 ----------
+10/01/2022 21:26:49 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.386
+10/01/2022 21:26:51 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:26:51 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:51 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:26:51 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.086s
+10/01/2022 21:26:51 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 21 -------
+10/01/2022 21:26:51 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 22 ----------
+10/01/2022 21:26:52 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.385
+10/01/2022 21:26:54 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 15 solutions
+10/01/2022 21:26:54 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:54 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:26:54 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.059s
+10/01/2022 21:26:54 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 22 -------
+10/01/2022 21:26:54 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 23 ----------
+10/01/2022 21:26:55 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.483
+10/01/2022 21:26:57 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:26:57 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:26:57 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:26:57 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.217s
+10/01/2022 21:26:57 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 23 -------
+10/01/2022 21:26:57 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 24 ----------
+10/01/2022 21:26:59 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.513
+10/01/2022 21:27:00 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:27:00 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:00 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:00 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.197s
+10/01/2022 21:27:00 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 24 -------
+10/01/2022 21:27:00 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 25 ----------
+10/01/2022 21:27:02 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.497
+10/01/2022 21:27:04 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:27:04 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:04 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:04 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.189s
+10/01/2022 21:27:04 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 25 -------
+10/01/2022 21:27:04 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 26 ----------
+10/01/2022 21:27:05 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.396
+10/01/2022 21:27:07 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:27:07 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:07 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:07 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.082s
+10/01/2022 21:27:07 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 26 -------
+10/01/2022 21:27:07 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 27 ----------
+10/01/2022 21:27:08 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.401
+10/01/2022 21:27:10 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:27:10 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:10 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:10 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.106s
+10/01/2022 21:27:10 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 27 -------
+10/01/2022 21:27:10 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 28 ----------
+10/01/2022 21:27:11 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.500
+10/01/2022 21:27:13 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:27:13 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:13 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:13 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.202s
+10/01/2022 21:27:13 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 28 -------
+10/01/2022 21:27:13 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 29 ----------
+10/01/2022 21:27:14 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.386
+10/01/2022 21:27:16 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:27:16 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:16 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:16 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.081s
+10/01/2022 21:27:16 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 29 -------
+10/01/2022 21:27:16 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 30 ----------
+10/01/2022 21:27:17 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.430
+10/01/2022 21:27:19 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:27:19 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:19 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:19 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.139s
+10/01/2022 21:27:19 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 30 -------
+10/01/2022 21:27:19 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 31 ----------
+10/01/2022 21:27:21 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.390
+10/01/2022 21:27:22 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:27:22 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:22 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:22 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.131s
+10/01/2022 21:27:22 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 31 -------
+10/01/2022 21:27:22 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 32 ----------
+10/01/2022 21:27:24 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.370
+10/01/2022 21:27:25 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:27:25 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:25 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:25 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.086s
+10/01/2022 21:27:25 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 32 -------
+10/01/2022 21:27:25 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 33 ----------
+10/01/2022 21:27:27 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.379
+10/01/2022 21:27:29 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:27:29 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:29 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:29 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.124s
+10/01/2022 21:27:29 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 33 -------
+10/01/2022 21:27:29 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 34 ----------
+10/01/2022 21:27:30 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.403
+10/01/2022 21:27:32 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:27:32 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:32 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:32 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.179s
+10/01/2022 21:27:32 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 34 -------
+10/01/2022 21:27:32 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 35 ----------
+10/01/2022 21:27:33 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.460
+10/01/2022 21:27:35 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:27:35 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:35 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:35 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.166s
+10/01/2022 21:27:35 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 35 -------
+10/01/2022 21:27:35 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 36 ----------
+10/01/2022 21:27:36 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.354
+10/01/2022 21:27:38 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 15 solutions
+10/01/2022 21:27:38 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:38 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:38 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.062s
+10/01/2022 21:27:38 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 36 -------
+10/01/2022 21:27:38 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 37 ----------
+10/01/2022 21:27:39 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.369
+10/01/2022 21:27:41 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:27:41 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:41 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:41 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.059s
+10/01/2022 21:27:41 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 37 -------
+10/01/2022 21:27:41 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 38 ----------
+10/01/2022 21:27:42 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.360
+10/01/2022 21:27:44 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:27:44 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:44 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:44 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.070s
+10/01/2022 21:27:44 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 38 -------
+10/01/2022 21:27:44 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 39 ----------
+10/01/2022 21:27:46 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.475
+10/01/2022 21:27:47 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:27:47 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:47 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:47 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.148s
+10/01/2022 21:27:47 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 39 -------
+10/01/2022 21:27:47 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 40 ----------
+10/01/2022 21:27:49 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.455
+10/01/2022 21:27:50 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 10 solutions
+10/01/2022 21:27:50 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:50 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:50 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.178s
+10/01/2022 21:27:50 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 40 -------
+10/01/2022 21:27:50 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 41 ----------
+10/01/2022 21:27:52 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.456
+10/01/2022 21:27:54 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 10 solutions
+10/01/2022 21:27:54 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:54 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:54 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.142s
+10/01/2022 21:27:54 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 41 -------
+10/01/2022 21:27:54 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 42 ----------
+10/01/2022 21:27:55 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.487
+10/01/2022 21:27:57 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 10 solutions
+10/01/2022 21:27:57 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:27:57 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:27:57 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.141s
+10/01/2022 21:27:57 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 42 -------
+10/01/2022 21:27:57 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 43 ----------
+10/01/2022 21:27:58 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.432
+10/01/2022 21:28:00 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:28:00 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:00 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:00 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.107s
+10/01/2022 21:28:00 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 43 -------
+10/01/2022 21:28:00 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 44 ----------
+10/01/2022 21:28:01 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.403
+10/01/2022 21:28:03 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:28:03 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:03 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:03 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.056s
+10/01/2022 21:28:03 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 44 -------
+10/01/2022 21:28:03 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 45 ----------
+10/01/2022 21:28:04 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.454
+10/01/2022 21:28:06 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:28:06 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:06 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:06 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.131s
+10/01/2022 21:28:06 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 45 -------
+10/01/2022 21:28:06 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 46 ----------
+10/01/2022 21:28:07 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.407
+10/01/2022 21:28:09 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:28:09 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:09 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:09 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.191s
+10/01/2022 21:28:09 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 46 -------
+10/01/2022 21:28:09 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 47 ----------
+10/01/2022 21:28:11 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.365
+10/01/2022 21:28:12 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:28:12 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:12 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:12 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.042s
+10/01/2022 21:28:12 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 47 -------
+10/01/2022 21:28:12 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 48 ----------
+10/01/2022 21:28:14 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.494
+10/01/2022 21:28:15 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:28:15 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:15 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:15 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.237s
+10/01/2022 21:28:15 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 48 -------
+10/01/2022 21:28:15 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 49 ----------
+10/01/2022 21:28:17 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.498
+10/01/2022 21:28:19 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:28:19 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:19 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:19 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.192s
+10/01/2022 21:28:19 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 49 -------
+10/01/2022 21:28:19 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 50 ----------
+10/01/2022 21:28:20 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.472
+10/01/2022 21:28:22 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:28:22 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:22 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:22 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.167s
+10/01/2022 21:28:22 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 50 -------
+10/01/2022 21:28:22 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 51 ----------
+10/01/2022 21:28:23 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.500
+10/01/2022 21:28:25 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:28:25 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:25 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:25 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.237s
+10/01/2022 21:28:25 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 51 -------
+10/01/2022 21:28:25 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 52 ----------
+10/01/2022 21:28:27 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.511
+10/01/2022 21:28:28 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:28:28 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:28 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:28 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.295s
+10/01/2022 21:28:28 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 52 -------
+10/01/2022 21:28:28 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 53 ----------
+10/01/2022 21:28:30 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.351
+10/01/2022 21:28:31 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:28:31 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:31 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:31 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.091s
+10/01/2022 21:28:31 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 53 -------
+10/01/2022 21:28:31 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 54 ----------
+10/01/2022 21:28:33 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.357
+10/01/2022 21:28:34 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:28:34 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:34 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:34 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.060s
+10/01/2022 21:28:34 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 54 -------
+10/01/2022 21:28:34 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 55 ----------
+10/01/2022 21:28:36 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.360
+10/01/2022 21:28:38 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:28:38 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:38 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:38 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.024s
+10/01/2022 21:28:38 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 55 -------
+10/01/2022 21:28:38 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 56 ----------
+10/01/2022 21:28:39 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.480
+10/01/2022 21:28:41 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:28:41 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:41 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:41 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.188s
+10/01/2022 21:28:41 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 56 -------
+10/01/2022 21:28:41 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 57 ----------
+10/01/2022 21:28:42 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.372
+10/01/2022 21:28:44 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:28:44 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:44 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:44 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.100s
+10/01/2022 21:28:44 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 57 -------
+10/01/2022 21:28:44 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 58 ----------
+10/01/2022 21:28:45 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.366
+10/01/2022 21:28:47 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:28:47 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:47 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:47 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.115s
+10/01/2022 21:28:47 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 58 -------
+10/01/2022 21:28:47 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 59 ----------
+10/01/2022 21:28:48 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.370
+10/01/2022 21:28:50 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:28:50 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:50 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:50 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.099s
+10/01/2022 21:28:50 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 59 -------
+10/01/2022 21:28:50 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 60 ----------
+10/01/2022 21:28:52 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.478
+10/01/2022 21:28:53 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:28:53 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:53 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:53 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.251s
+10/01/2022 21:28:53 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 60 -------
+10/01/2022 21:28:53 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 61 ----------
+10/01/2022 21:28:55 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.476
+10/01/2022 21:28:56 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:28:56 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:56 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:56 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.137s
+10/01/2022 21:28:56 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 61 -------
+10/01/2022 21:28:56 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 62 ----------
+10/01/2022 21:28:58 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.427
+10/01/2022 21:28:59 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:28:59 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:28:59 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:28:59 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.070s
+10/01/2022 21:28:59 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 62 -------
+10/01/2022 21:28:59 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 63 ----------
+10/01/2022 21:29:01 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.357
+10/01/2022 21:29:03 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:29:03 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:03 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:03 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.097s
+10/01/2022 21:29:03 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 63 -------
+10/01/2022 21:29:03 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 64 ----------
+10/01/2022 21:29:04 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.404
+10/01/2022 21:29:06 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:29:06 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:06 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:06 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.054s
+10/01/2022 21:29:06 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 64 -------
+10/01/2022 21:29:06 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 65 ----------
+10/01/2022 21:29:07 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.381
+10/01/2022 21:29:09 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:29:09 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:09 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:09 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.007s
+10/01/2022 21:29:09 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 65 -------
+10/01/2022 21:29:09 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 66 ----------
+10/01/2022 21:29:10 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.359
+10/01/2022 21:29:12 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:29:12 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:12 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:12 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.001s
+10/01/2022 21:29:12 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 66 -------
+10/01/2022 21:29:12 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 67 ----------
+10/01/2022 21:29:13 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.355
+10/01/2022 21:29:15 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:29:15 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:15 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:15 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.033s
+10/01/2022 21:29:15 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 67 -------
+10/01/2022 21:29:15 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 68 ----------
+10/01/2022 21:29:16 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.426
+10/01/2022 21:29:18 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:29:18 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:18 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:18 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.090s
+10/01/2022 21:29:18 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 68 -------
+10/01/2022 21:29:18 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 69 ----------
+10/01/2022 21:29:19 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.360
+10/01/2022 21:29:21 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:29:21 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:21 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:21 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.046s
+10/01/2022 21:29:21 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 69 -------
+10/01/2022 21:29:21 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 70 ----------
+10/01/2022 21:29:22 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.375
+10/01/2022 21:29:24 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:29:24 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:24 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:24 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.046s
+10/01/2022 21:29:24 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 70 -------
+10/01/2022 21:29:24 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 71 ----------
+10/01/2022 21:29:25 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.359
+10/01/2022 21:29:27 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:29:27 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:27 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:27 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 2.983s
+10/01/2022 21:29:27 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 71 -------
+10/01/2022 21:29:27 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 72 ----------
+10/01/2022 21:29:28 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.360
+10/01/2022 21:29:30 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 14 solutions
+10/01/2022 21:29:30 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:30 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:30 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.065s
+10/01/2022 21:29:30 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 72 -------
+10/01/2022 21:29:30 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 73 ----------
+10/01/2022 21:29:31 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.364
+10/01/2022 21:29:33 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:29:33 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:33 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:33 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.044s
+10/01/2022 21:29:33 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 73 -------
+10/01/2022 21:29:33 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 74 ----------
+10/01/2022 21:29:34 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.361
+10/01/2022 21:29:36 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:29:36 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:36 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:36 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.041s
+10/01/2022 21:29:36 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 74 -------
+10/01/2022 21:29:36 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 75 ----------
+10/01/2022 21:29:37 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.358
+10/01/2022 21:29:39 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:29:39 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:39 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:39 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.046s
+10/01/2022 21:29:39 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 75 -------
+10/01/2022 21:29:39 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 76 ----------
+10/01/2022 21:29:41 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.463
+10/01/2022 21:29:42 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:29:42 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:42 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:42 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.142s
+10/01/2022 21:29:42 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 76 -------
+10/01/2022 21:29:42 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 77 ----------
+10/01/2022 21:29:44 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.501
+10/01/2022 21:29:45 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:29:45 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:45 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:45 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.200s
+10/01/2022 21:29:45 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 77 -------
+10/01/2022 21:29:45 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 78 ----------
+10/01/2022 21:29:47 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.426
+10/01/2022 21:29:49 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:29:49 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:49 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:49 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.165s
+10/01/2022 21:29:49 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 78 -------
+10/01/2022 21:29:49 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 79 ----------
+10/01/2022 21:29:50 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.373
+10/01/2022 21:29:52 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:29:52 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:52 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:52 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.089s
+10/01/2022 21:29:52 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 79 -------
+10/01/2022 21:29:52 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 80 ----------
+10/01/2022 21:29:53 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.379
+10/01/2022 21:29:55 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:29:55 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:55 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:55 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.101s
+10/01/2022 21:29:55 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 80 -------
+10/01/2022 21:29:55 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 81 ----------
+10/01/2022 21:29:56 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.372
+10/01/2022 21:29:58 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:29:58 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:29:58 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:29:58 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.080s
+10/01/2022 21:29:58 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 81 -------
+10/01/2022 21:29:58 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 82 ----------
+10/01/2022 21:29:59 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.380
+10/01/2022 21:30:01 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:30:01 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:01 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:01 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.048s
+10/01/2022 21:30:01 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 82 -------
+10/01/2022 21:30:01 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 83 ----------
+10/01/2022 21:30:02 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.367
+10/01/2022 21:30:04 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 11 solutions
+10/01/2022 21:30:04 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:04 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:04 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.029s
+10/01/2022 21:30:04 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 83 -------
+10/01/2022 21:30:04 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 84 ----------
+10/01/2022 21:30:05 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.385
+10/01/2022 21:30:07 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:30:07 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:07 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:07 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.102s
+10/01/2022 21:30:07 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 84 -------
+10/01/2022 21:30:07 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 85 ----------
+10/01/2022 21:30:08 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.444
+10/01/2022 21:30:10 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:30:10 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:10 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:10 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.129s
+10/01/2022 21:30:10 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 85 -------
+10/01/2022 21:30:10 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 86 ----------
+10/01/2022 21:30:12 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.377
+10/01/2022 21:30:13 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:30:13 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:13 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:13 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.089s
+10/01/2022 21:30:13 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 86 -------
+10/01/2022 21:30:13 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 87 ----------
+10/01/2022 21:30:15 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.378
+10/01/2022 21:30:16 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:30:16 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:16 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:16 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.102s
+10/01/2022 21:30:16 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 87 -------
+10/01/2022 21:30:16 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 88 ----------
+10/01/2022 21:30:18 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.503
+10/01/2022 21:30:20 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:30:20 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:20 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:20 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.260s
+10/01/2022 21:30:20 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 88 -------
+10/01/2022 21:30:20 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 89 ----------
+10/01/2022 21:30:21 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.459
+10/01/2022 21:30:23 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:30:23 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:23 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:23 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.209s
+10/01/2022 21:30:23 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 89 -------
+10/01/2022 21:30:23 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 90 ----------
+10/01/2022 21:30:24 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.527
+10/01/2022 21:30:26 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:30:26 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:26 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:26 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.211s
+10/01/2022 21:30:26 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 90 -------
+10/01/2022 21:30:26 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 91 ----------
+10/01/2022 21:30:27 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.410
+10/01/2022 21:30:29 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:30:29 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:29 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:29 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.081s
+10/01/2022 21:30:29 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 91 -------
+10/01/2022 21:30:29 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 92 ----------
+10/01/2022 21:30:30 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.374
+10/01/2022 21:30:32 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:30:32 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:32 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:32 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.065s
+10/01/2022 21:30:32 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 92 -------
+10/01/2022 21:30:32 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 93 ----------
+10/01/2022 21:30:34 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.471
+10/01/2022 21:30:35 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:30:35 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:35 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:35 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.114s
+10/01/2022 21:30:35 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 93 -------
+10/01/2022 21:30:35 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 94 ----------
+10/01/2022 21:30:37 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.373
+10/01/2022 21:30:38 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:30:38 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:38 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:38 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.040s
+10/01/2022 21:30:38 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 94 -------
+10/01/2022 21:30:38 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 95 ----------
+10/01/2022 21:30:40 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.383
+10/01/2022 21:30:41 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:30:41 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:41 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:41 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.047s
+10/01/2022 21:30:41 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 95 -------
+10/01/2022 21:30:41 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 96 ----------
+10/01/2022 21:30:43 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.490
+10/01/2022 21:30:45 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:30:45 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:45 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:45 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.264s
+10/01/2022 21:30:45 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 96 -------
+10/01/2022 21:30:45 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 97 ----------
+10/01/2022 21:30:46 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.505
+10/01/2022 21:30:48 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 12 solutions
+10/01/2022 21:30:48 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.365e-01 -> 2.249e-01
+10/01/2022 21:30:48 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.482e+08
+10/01/2022 21:30:48 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.232s
+10/01/2022 21:30:48 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 97 -------
+10/01/2022 21:30:48 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 98 ----------
+10/01/2022 21:30:49 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.389
+10/01/2022 21:30:51 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:30:51 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.325e-01 -> 2.249e-01
+10/01/2022 21:30:51 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.769e+08
+10/01/2022 21:30:51 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.161s
+10/01/2022 21:30:51 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 98 -------
+10/01/2022 21:30:51 [src.nsga2.evolution] (MainProcess) INFO: ---------- Generation 99 ----------
+10/01/2022 21:30:52 [src.nsga2.evolution] (MainProcess) INFO: Created children in time: 1.410
+10/01/2022 21:30:54 [src.nsga2.evolution] (MainProcess) INFO: Pareto front contains 13 solutions
+10/01/2022 21:30:54 [src.nsga2.evolution] (MainProcess) INFO: Objective 0 ranges: 1.325e-01 -> 2.249e-01
+10/01/2022 21:30:54 [src.nsga2.evolution] (MainProcess) INFO: Objective 1 ranges: 7.216e+07 -> 1.769e+08
+10/01/2022 21:30:54 [src.nsga2.evolution] (MainProcess) INFO: Generation time: 3.181s
+10/01/2022 21:30:54 [src.nsga2.evolution] (MainProcess) INFO: ------- Ended generation 99 -------
+10/01/2022 21:30:54 [src.nsga2.evolution] (MainProcess) INFO: Ended at 10/01/2022 21:30:54
+10/01/2022 21:30:54 [src.nsga2.evolution] (MainProcess) INFO: ------------------------------------
+10/01/2022 21:30:54 [src.nsga2.evolution] (MainProcess) INFO: Saved final population in /home/balkon00/PrintedTrees/results/ga/mammographic_10_01_2022__21_25/final_population.pkl

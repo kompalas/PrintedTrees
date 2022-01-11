@@ -1,0 +1,2 @@
+Sol	Accuracy	Area	Delay	Power
+acc	6.270e-01	138300460.000000	22136172.000	6.442e-03
