@@ -1,0 +1,37 @@
+11/01/2022 10:07:28 DEBUG: Command line arguments: {'num_of_trials': 50, 'max_depth': None, 'input_bits': None, 'margin': 5, 'verbose': False, 'area_file': '/mnt/c/Users/User/Documents/PhD/PrintedTrees/results/*/*.txt', 'gene_type': 'real'}
+11/01/2022 10:07:28 INFO: Calculating the average execution time of a single random chromosome for each circuit (50 trials)
+11/01/2022 10:07:28 INFO: Initial test accuracy: 6.508e-01
+11/01/2022 10:07:29 INFO: Arrhythmia: 6.958e-04s
+11/01/2022 10:07:29 INFO: ----------------------------------------------------
+11/01/2022 10:07:29 INFO: Initial test accuracy: 9.263e-01
+11/01/2022 10:07:30 INFO: Cardio: 8.519e-04s
+11/01/2022 10:07:30 INFO: ----------------------------------------------------
+11/01/2022 10:07:30 INFO: Initial test accuracy: 9.600e-01
+11/01/2022 10:07:32 INFO: PenDigits: 2.328e-03s
+11/01/2022 10:07:32 INFO: ----------------------------------------------------
+11/01/2022 10:07:32 INFO: Dataset 'GasID' is not implemented.
+11/01/2022 10:07:32 INFO: ----------------------------------------------------
+11/01/2022 10:07:32 INFO: Initial test accuracy: 5.833e-01
+11/01/2022 10:07:33 INFO: RedWine: 2.029e-03s
+11/01/2022 10:07:33 INFO: ----------------------------------------------------
+11/01/2022 10:07:33 INFO: Initial test accuracy: 6.146e-01
+11/01/2022 10:07:35 INFO: WhiteWine: 2.077e-03s
+11/01/2022 10:07:35 INFO: ----------------------------------------------------
+11/01/2022 10:07:37 INFO: Initial test accuracy: 8.440e-01
+11/01/2022 10:07:39 INFO: HAR: 3.080e-03s
+11/01/2022 10:07:39 INFO: ----------------------------------------------------
+11/01/2022 10:07:39 INFO: Initial test accuracy: 8.313e-01
+11/01/2022 10:07:40 INFO: Mammographic: 1.319e-03s
+11/01/2022 10:07:40 INFO: ----------------------------------------------------
+11/01/2022 10:07:40 INFO: Initial test accuracy: 9.524e-01
+11/01/2022 10:07:41 INFO: Seeds: 3.753e-04s
+11/01/2022 10:07:41 INFO: ----------------------------------------------------
+11/01/2022 10:07:41 INFO: Initial test accuracy: 7.926e-01
+11/01/2022 10:07:43 INFO: Balance: 1.006e-03s
+11/01/2022 10:07:43 INFO: ----------------------------------------------------
+11/01/2022 10:07:43 INFO: Initial test accuracy: 9.463e-01
+11/01/2022 10:07:44 INFO: Breast_Cancer: 4.748e-04s
+11/01/2022 10:07:44 INFO: ----------------------------------------------------
+11/01/2022 10:07:44 INFO: Initial test accuracy: 7.957e-01
+11/01/2022 10:07:45 INFO: Vertebral: 4.909e-04s
+11/01/2022 10:07:45 INFO: ----------------------------------------------------

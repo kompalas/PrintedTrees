@@ -46,4 +46,4 @@ fig.text(
     fontweight="bold", va='center', ha='center'
 )
 
-plt.savefig(f"{project_dir}/results/figures/comp_area.pdf", bbox_inches='tight')
+# plt.savefig(f"{project_dir}/results/figures/comp_area.pdf", bbox_inches='tight')

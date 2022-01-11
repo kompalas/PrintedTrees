@@ -18,7 +18,7 @@ from src.nsga2.objectives import translate_chromosome, calculate_accuracy
 logger = logging.getLogger(__name__)
 
 
-def logger_cfg(logfile=None):
+def logger_cfg(logger, logfile=None):
     logging.getLogger("matplotlib").setLevel(logging.INFO)
     logger.setLevel(logging.DEBUG)
     stream_formatter = logging.Formatter('%(levelname)s %(message)s')
@@ -31,7 +31,7 @@ def logger_cfg(logfile=None):
         file_formatter = logging.Formatter(
             '%(asctime)s %(levelname)s: %(message)s', datefmt='%d/%m/%Y %H:%M:%S'
         )
-        file_handler = logging.FileHandler(args.logfile, mode='w')
+        file_handler = logging.FileHandler(logfile, mode='w')
         file_handler.setFormatter(file_formatter)
         file_handler.setLevel(logging.DEBUG)
         logger.addHandler(file_handler)
@@ -108,7 +108,7 @@ if __name__ == "__main__":
     parser.add_argument('--logfile', default=f'{project_dir}/logs/test_clf.log',
                         help='Set the logging file for this script')
     args = parser.parse_args()
-    logger_cfg(args.logfile)
+    logger_cfg(logger, args.logfile)
 
     # create results directory
     resdir_not_set = args.results_dir is None

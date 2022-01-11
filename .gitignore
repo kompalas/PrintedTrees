@@ -28,5 +28,6 @@ test/**/netlists/
 
 # Allow
 !results/**/results*.txt
+!logs/exec_time.log
 #!results/comp_19_12_2021__13_04/results_50ms.txt
 #!results/comp_17_12_2021__15_41/results_0ms.txt
