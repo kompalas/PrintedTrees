@@ -1,0 +1,37 @@
+
+\begin{table}[t]
+\caption{Area and power evaluation for an accuracy threshold of $1\%$. Circuits highlighted in XX can be powered by XX}
+\centering
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{c|c|c|c|c|c}
+	\hline
+	\textbf{Dataset} & \textbf{Accuracy} & \textbf{Area} & \textbf{Norm. Area} &  \textbf{Power} & \textbf{Norm. Power} \\
+
+	\hline
+	\rowcolor{DarkSeaGreen1!50} \textbf{Arrhythmia} & 0.67 & 2.2e+07 & 0.137 & 1.0e-03 & 0.138 \\
+	\hline
+	\rowcolor{DarkSeaGreen1!50} \textbf{Balance} & 0.81 & 2.7e+07 & 0.401 & 1.2e-03 & 0.372 \\
+	\hline
+	\rowcolor{DarkSeaGreen1!50} \textbf{Cardio} & 0.85 & 1.3e+07 & 0.071 & 6.3e-04 & 0.078 \\
+	\hline
+	\rowcolor{Azure1!50} \textbf{HAR} & 0.67 & 2.1e+08 & 0.365 & 9.7e-03 & 0.360 \\
+	\hline
+	\rowcolor{DarkSeaGreen1!50} \textbf{Mammogr.} & 0.81 & 8.1e+06 & 0.082 & 3.8e-04 & 0.084 \\
+	\hline
+	\rowcolor{Azure1!50} \textbf{PenDigits} & 0.35 & 8.7e+07 & 0.151 & 4.0e-03 & 0.159 \\
+	\hline
+	\rowcolor{DarkSeaGreen1!50} \textbf{Redwine} & 0.55 & 3.6e+07 & 0.071 & 1.6e-03 & 0.072 \\
+	\hline
+	\rowcolor{Burlywood1!50} \textbf{Seeds} & 0.94 & 2.3e+06 & 0.077 & 9.2e-05 & 0.064 \\
+	\hline
+	\rowcolor{DarkSeaGreen1!50} \textbf{Vertebral} & 0.86 & 7.8e+06 & 0.136 & 3.8e-04 & 0.142 \\
+	\hline
+	\rowcolor{DarkSeaGreen1!50} \textbf{WhiteWine} & 0.53 & 6.1e+07 & 0.112 & 2.7e-03 & 0.117 \\
+	\hline
+
+\end{tabular}
+}
+\label{tab:area_power}
+\end{table}
+

@@ -11,7 +11,6 @@ import numpy as np
 
 
 def logging_cfg(logger_name, logfile):
-    
     logger = logging.getLogger(logger_name)
     logger.setLevel(logging.DEBUG)
     simple_formatter = logging.Formatter('')
