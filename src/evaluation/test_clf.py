@@ -8,7 +8,6 @@ import numpy as np
 from copy import deepcopy
 from glob import glob
 from sklearn import tree
-from decimal import Decimal, getcontext
 from src import ALL_DATASETS, project_dir
 from src.evaluation.pareto import get_results_file, extract_fronts
 from src.datasets import get_data
@@ -221,8 +220,7 @@ if __name__ == "__main__":
                 print_dt_info(classifier=clf)
 
                 # TODO: this fails because of precision errors, not mismatch errors. Reduce the precision to fix
-                getcontext().prec = 5
-                assert Decimal(acc) == Decimal(1 - individual.objectives[0]), f"Re-tested accuracy and the original" \
+                assert round(acc, 5) == round(1 - individual.objectives[0], 5), f"Re-tested accuracy and the original" \
                         f"value {1 - individual.objectives[0]} is different than the measured value {acc}"
                 logger.debug("\n")
 

@@ -4,10 +4,11 @@
 \centering
 {\footnotesize
 \setlength{\tabcolsep}{4pt}
+\begin{threeparttable}
 \begin{tabular}{c|c|c|c|c|c}
 	\hline
 
-	\textbf{Dataset} & \textbf{Accuracy} & \textbf{\#Comp.} & \makecell{\textbf{Delay} \\ ($ms$)} & \makecell{\textbf{Area} \\ ($mm^2$)} & \makecell{\textbf{Power} \\ ($mW$)} \\
+	\textbf{Dataset} & \textbf{Accuracy} & \textbf{\#Comp.\tnote{1}} & \makecell{\textbf{Delay} \\ ($ms$)} & \makecell{\textbf{Area} \\ ($mm^2$)} & \makecell{\textbf{Power} \\ ($mW$)} \\
 	\hline
 	\textbf{Arrhythmia} & 0.564 & 54 & 27.0 & 162.50 & 7.55 \\
 	\hline
@@ -15,7 +16,7 @@
 	\hline
 	\textbf{Cardio} & 0.928 & 79 & 30.4 & 178.63 & 8.12 \\
 	\hline
-	\textbf{HAR} & 0.835 & 186 & 36.7 & 570.38 & 27.00 \\
+	\textbf{HAR} & 0.835 & 178 & 33.7 & 551.08 & 26.10 \\
 	\hline
 	\textbf{Mammogr.} & 0.759 & 150 & 34.2 & 98.75 & 4.47 \\
 	\hline
@@ -31,6 +32,10 @@
 	\hline
 
 \end{tabular}
+\begin{tablenotes}
+\item[1] Number of comparators in the design
+\end{tablenotes}
+\end{threeparttable}
 }
 \label{tab:baseline}
 \end{table}

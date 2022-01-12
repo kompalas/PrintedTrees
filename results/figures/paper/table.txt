@@ -1,7 +1,6 @@
 
 \begin{table}[t]
-\caption{Area and power evaluation for an accuracy threshold of $1\%$. Circuits highlighted in XX can be powered by XX}
-\centering
+\caption{Area and power evaluation for an accuracy threshold of $1\%$. Circuits highlighted in green can be powered by Blue Spark printed batteries ($<3mW$) and the design highlighted in orange can be self-powered, i.e. by an energy harvester ($<0.1mW$)}\centering
 {\footnotesize
 % \setlength{\tabcolsep}{3pt}
 \begin{tabular}{c|c|c|c|c|c}
@@ -12,21 +11,21 @@
 	\hline
 	\rowcolor{DarkSeaGreen1!50} \textbf{Balance} & 0.81 & 27.28 & 0.401 & 1.16 & 0.372 \\
 	\hline
-	\rowcolor{DarkSeaGreen1!50} \textbf{Cardio} & 0.85 & 12.68 & 0.071 & 0.63 & 0.078 \\
+	\rowcolor{DarkSeaGreen1!50} \textbf{Cardio} & 0.92 & 43.54 & 0.244 & 2.05 & 0.253 \\
 	\hline
-	\rowcolor{Azure1!50} \textbf{HAR} & 0.67 & 208.41 & 0.365 & 9.73 & 0.360 \\
+	\rowcolor{Azure1!50} \textbf{HAR} & 0.83 & 294.54 & 0.534 & 13.70 & 0.525 \\
 	\hline
 	\rowcolor{DarkSeaGreen1!50} \textbf{Mammogr.} & 0.81 & 8.06 & 0.082 & 0.38 & 0.084 \\
 	\hline
-	\rowcolor{Azure1!50} \textbf{PenDigits} & 0.35 & 86.70 & 0.151 & 3.96 & 0.159 \\
+	\rowcolor{Azure1!50} \textbf{PenDigits} & 0.96 & 368.48 & 0.641 & 16.10 & 0.644 \\
 	\hline
-	\rowcolor{DarkSeaGreen1!50} \textbf{Redwine} & 0.55 & 36.33 & 0.071 & 1.61 & 0.072 \\
+	\rowcolor{Azure1!50} \textbf{Redwine} & 0.60 & 267.21 & 0.520 & 11.70 & 0.525 \\
 	\hline
 	\rowcolor{Burlywood1!50} \textbf{Seeds} & 0.94 & 2.32 & 0.077 & 0.09 & 0.064 \\
 	\hline
 	\rowcolor{DarkSeaGreen1!50} \textbf{Vertebral} & 0.86 & 7.84 & 0.136 & 0.38 & 0.142 \\
 	\hline
-	\rowcolor{DarkSeaGreen1!50} \textbf{WhiteWine} & 0.53 & 61.07 & 0.112 & 2.72 & 0.117 \\
+	\rowcolor{Azure1!50} \textbf{WhiteWine} & 0.61 & 124.11 & 0.229 & 5.35 & 0.230 \\
 	\hline
 
 \end{tabular}

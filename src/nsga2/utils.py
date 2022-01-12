@@ -28,8 +28,8 @@ class NSGA2Utils:
         self.tournament_prob = tournament_prob
 
         # TODO: find a better way to assign params for 'real' variable type
-        self.crossover_param = crossover_param if self.problem.variable_type == 'int' else 2
-        self.mutation_param = mutation_param if self.problem.variable_type == 'int' else 5
+        self.crossover_param = crossover_param if self.problem.variable_type == 'int' else 20
+        self.mutation_param = mutation_param if self.problem.variable_type == 'int' else 50
 
         # parallel execution variables
         self.threads = threads

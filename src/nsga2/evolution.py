@@ -163,7 +163,7 @@ class Evolution:
     def on_generation(self, generation, time_elapsed):
         """Utility function at the end of each generation"""
         # save population to file
-        if self.save_frequency != -1 and generation + 1 % self.save_frequency == 0:
+        if self.save_frequency != -1 and generation % self.save_frequency == 0:
             with open(self.utils.problem.resdir + f'/population{generation}.pkl', 'wb') as f:
                 # save only the chromosomes and objective values
                 simplified_fronts = []

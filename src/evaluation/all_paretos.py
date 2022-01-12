@@ -95,6 +95,7 @@ if __name__ == "__main__":
 
     corr = []
     letter_to_dataset = {}
+    area_measurements = {5: {}, 2: {}, 1: {}}
     print()
     for index, (dataset, exp_name) in enumerate(kept_paretos.items()):
         letter = next(letters)
@@ -126,7 +127,38 @@ if __name__ == "__main__":
         )
         cfg_plot(ax)
 
+        # get statistics for the three accuracy thresholds
+        area_measurements[5][dataset] = np.average(
+            data_df.loc[data_df['Accuracy'] >= baseline_df['Accuracy'] - 0.05]['Area']/baseline_df['Area']
+        )
+        area_measurements[2][dataset] = np.average(
+            data_df.loc[data_df['Accuracy'] >= baseline_df['Accuracy'] - 0.02]['Area']/baseline_df['Area']
+        )
+        area_measurements[1][dataset] = np.average(
+            data_df.loc[data_df['Accuracy'] >= baseline_df['Accuracy'] - 0.01]['Area']/baseline_df['Area']
+        )
+
     print()
+    print("For 5% threshold:")
+    print(f"\tMin average normalized area: {min(area_measurements[5].values())} for the "
+          f"{min(area_measurements[5], key=area_measurements[5].get)} dataset")
+    print(f"\tMax average normalized area: {max(area_measurements[5].values())} for the "
+          f"{max(area_measurements[5], key=area_measurements[5].get)} dataset")
+    print(f"\tAverage normalized area: {np.average(list(area_measurements[5].values()))}")
+    print("For 2% threshold:")
+    print(f"\tMin average normalized area: {min(area_measurements[2].values())} for the "
+          f"{min(area_measurements[2], key=area_measurements[2].get)} dataset")
+    print(f"\tMax average normalized area: {max(area_measurements[2].values())} for the "
+          f"{max(area_measurements[2], key=area_measurements[2].get)} dataset")
+    print(f"\tAverage normalized area: {np.average(list(area_measurements[2].values()))}")
+    print("For 1% threshold:")
+    print(f"\tMin average normalized area: {min(area_measurements[1].values())} for the "
+          f"{min(area_measurements[1], key=area_measurements[1].get)} dataset")
+    print(f"\tMax average normalized area: {max(area_measurements[1].values())} for the "
+          f"{max(area_measurements[1], key=area_measurements[1].get)} dataset")
+    print(f"\tAverage normalized area: {np.average(list(area_measurements[1].values()))}")
+    print()
+
     print(f"Area correlation: {np.average(corr)}")
     print("Subfigure letters belong to:")
     for letter, dataset in letter_to_dataset.items():
@@ -144,7 +176,7 @@ if __name__ == "__main__":
     handles, labels = ax.get_legend_handles_labels()
     leg = fig.legend(
         handles, labels,
-        columnspacing=1, ncol=3 if args.estimated else 2,
+        columnspacing=1, ncol=3 if args.estimated else 2, handletextpad=0.2,
         edgecolor=None, framealpha=0,
         fontsize=legendisize,
         bbox_to_anchor=(0.5, 0.93), loc='lower center'

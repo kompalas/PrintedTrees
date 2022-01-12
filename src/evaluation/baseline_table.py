@@ -10,8 +10,12 @@ import ast
 def get_comparators(experiment_name):
     with open(f"{project_dir}/results/ga/{experiment_name}/out.log", "r") as f:
         log = f.read()
-    thresholds = re.search("Original thresholds: (\[.*?\])", log, re.DOTALL)
-    thresholds = thresholds.group(1).replace('\n', '').replace('[', '[ ').replace(']', ' ]')
+    thresholds = re.search("Original thresholds[\s\d]*: (\[.*?\])", log, re.DOTALL)
+    try:
+        thresholds = thresholds.group(1).replace('\n', '').replace('[', '[ ').replace(']', ' ]')
+    except AttributeError:
+        print(f"{project_dir}/results/ga/{experiment_name}/out.log")
+        raise
     thresholds = re.split("\s+", thresholds)
     thresholds = [float(t) for t in thresholds if re.match('[-]?\d+[.]?\d*', t)]
     return thresholds
@@ -35,11 +39,12 @@ if __name__ == "__main__":
 \\centering
 {\\footnotesize
 \\setlength{\\tabcolsep}{4pt}
+\\begin{threeparttable}
 \\begin{tabular}{c|c|c|c|c|c}
 \t\\hline
 """)
 
-    initial_line = "\t\\textbf{Dataset} & \\textbf{Accuracy} & \\textbf{\\#Comp.} & " \
+    initial_line = "\t\\textbf{Dataset} & \\textbf{Accuracy} & \\textbf{\\#Comp.\\tnote{1}} & " \
                    "\\makecell{\\textbf{Delay} \\\\ ($ms$)} & \\makecell{\\textbf{Area} \\\\ ($mm^2$)} & " \
                    "\\makecell{\\textbf{Power} \\\\ ($mW$)} \\\\"
     logger.debug(f"{initial_line}\n\t\\hline")
@@ -79,6 +84,10 @@ if __name__ == "__main__":
 
     logger.debug(r"""
 \end{tabular}
+\begin{tablenotes}
+\item[1] Number of comparators in the design
+\end{tablenotes}
+\end{threeparttable}
 }
 \label{tab:baseline}
 \end{table}

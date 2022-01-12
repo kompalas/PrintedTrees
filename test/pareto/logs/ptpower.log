@@ -57,7 +57,7 @@ Information: 6 (54.55%) library cells are unused in library PPDK_Standard_Librar
 Information: 301 (100.00%) library cells are unused in library dw_foundation.sldb..... (LNK-045)
 Information: total 307 library cells are unused (LNK-046)
 Design 'top' was successfully linked.
-Information: There are 92 leaf cells, ports, hiers and 89 nets in the design (LNK-047)
+Information: There are 1804 leaf cells, ports, hiers and 1800 nets in the design (LNK-047)
 1
 read_sdf ./gate/${top_design}.sdf
 
@@ -69,12 +69,12 @@ Report : read_sdf /home/balkon00/PrintedTrees/test/pareto/gate/top.sdf
 	-max_type sdf_max
 Design : top
 Version: S-2021.06-SP1
-Date   : Tue Jan 11 09:14:41 2022
+Date   : Wed Jan 12 15:46:44 2022
 ****************************************
 
         0 error(s)
-        Number of annotated cell delay arcs :        70
-        Number of annotated net delay arcs  :        70
+        Number of annotated cell delay arcs :      1252
+        Number of annotated net delay arcs  :      1252
         Number of annotated timing checks   :         0
         TEMPERATURE: 25.00 (min)  25.00 (max)
         VOLTAGE    : 1.00 (min)  1.00 (max)
@@ -100,17 +100,17 @@ top_tb
 read_vcd -strip_path ${tb}/${dut} ${vcdfile}
 Information: Reading file top.vcd.gz to annotate toggle rates on the design...
 Information: Reading vcd file '/home/balkon00/PrintedTrees/test/pareto/sim/top.vcd.gz'
-Information: Simulation Start Time : 0.000000 ns, Simulation End Time : 4999957758071.639648 ns, Total Simulation Time : 4999957758071.639648 ns
+Information: Simulation Start Time : 0.000000 ns, Simulation End Time : 4999964718375.780273 ns, Total Simulation Time : 4999964718375.780273 ns
 
 ======================================================================
 Summary:
-Total number of nets = 89
-Number of annotated nets = 89 (100.00%)
-Total number of leaf cells = 41
-Number of fully annotated leaf cells = 41 (100.00%)
+Total number of nets = 1800
+Number of annotated nets = 1800 (100.00%)
+Total number of leaf cells = 696
+Number of fully annotated leaf cells = 696 (100.00%)
 ======================================================================
 
-Information: Total number of synthesis invariant points = 48 , annotated synthesis invariant points = 48, annotation_ratio = 100.00%
+Information: Total number of synthesis invariant points = 1104 , annotated synthesis invariant points = 1104, annotation_ratio = 100.00%
 1
 update_power
 Warning: Zero transition time will be used at to pins of annotated arcs. Delays on not annotated delay arcs will be estimated using best available slew.  (PTE-066)
@@ -143,9 +143,9 @@ Information: Defining new variable 'LIB_DB_PATH'. (CMD-041)
 
 Timing updates: 1 (1 implicit, 0 explicit) (0 incremental, 1 full, 0 logical)
 Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
-Maximum memory usage for this session: 2771.67 MB
-CPU usage for this session: 4 seconds 
-Elapsed time for this session: 4 seconds
+Maximum memory usage for this session: 2928.97 MB
+CPU usage for this session: 15 seconds 
+Elapsed time for this session: 15 seconds
 Diagnostics summary: 2 warnings, 23 informationals
 
 Thank you for using pt_shell!
