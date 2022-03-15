@@ -26,7 +26,7 @@ def get_ga_data(num_of_solutions, experiment_dir):
         population = pickle.load(f)
     fronts = extract_fronts(population)
 
-    print(f"{num_of_solutions} pareto solutions are used for {experiment_dir}")
+    print(f"{num_of_solutions} pareto solutions are used for {experiment_dir} ({popfile})")
     # constrain pareto to the specified amount of solutions    
     pareto = fronts[0] if len(fronts[0]) <= num_of_solutions else \
         sorted(fronts[0], key=lambda ind: ind.objectives[0])[:num_of_solutions]

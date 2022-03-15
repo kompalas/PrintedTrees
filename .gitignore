@@ -18,7 +18,7 @@ printedtrees.egg-info/
 logs/*
 results/comp_*/*
 results/temp/
-results/ga/*
+results/ga/*/*
 test/**/sim/
 test/**/gate/
 test/**/reports/
@@ -32,3 +32,14 @@ test/**/netlists/
 !logs/exec_time.log
 #!results/comp_19_12_2021__13_04/results_50ms.txt
 #!results/comp_17_12_2021__15_41/results_0ms.txt
+!results/ga/arrhythmia_10_01_2022__20_45/final_population.pkl
+!results/ga/balance_10_01_2022__20_51/final_population.pkl
+!results/ga/breast_cancer_10_01_2022__21_01/final_population.pkl
+!results/ga/cardio_10_01_2022__21_04/final_population.pkl
+!results/ga/har_12_01_2022__14_25/population105.pkl
+!results/ga/mammographic_10_01_2022__21_25/final_population.pkl
+!results/ga/pendigits_10_01_2022__21_46/final_population.pkl
+!results/ga/redwine_10_01_2022__21_54/final_population.pkl
+!/results/ga/seeds_10_01_2022__22_01/final_population.pkl
+!results/ga/vertebral_10_01_2022__22_08/final_population.pkl
+!results/ga/whitewine_11_01_2022__08_43/final_population.pkl
